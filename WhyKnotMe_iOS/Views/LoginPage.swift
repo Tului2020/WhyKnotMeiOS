@@ -14,7 +14,7 @@ struct LoginPage: View {
     let fontSize:CGFloat = 14;
     
     var body: some View {
-        ZStack() {
+        ZStack {
             Image("background")
                 .resizable()
                 .frame(width: 600.0, height: 1000.0)
@@ -36,7 +36,7 @@ struct LoginPage: View {
                 VStack(spacing: 13) {
                     // Continue with Apple Button
                     NavigationLink(
-                        destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
+                        destination: ApplePage(),
                         label: {
                             Text("Continue with Apple")
                                 .bold()
@@ -51,7 +51,7 @@ struct LoginPage: View {
                     
                     // Continue with Facebook Button
                     NavigationLink(
-                        destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
+                        destination: FacebookPage(),
                         label: {
                             Text("Continue with Facebook")
                                 .bold()
@@ -66,7 +66,7 @@ struct LoginPage: View {
                     
                     // User Cell Phone Number
                     NavigationLink(
-                        destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
+                        destination: PhoneNumberPage(),
                         label: {
                             Text("Use Cellphone Number")
                                 .bold()
