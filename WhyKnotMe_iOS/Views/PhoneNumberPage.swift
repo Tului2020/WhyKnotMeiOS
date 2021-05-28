@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+//import iPh
+
 
 struct PhoneNumberPage: View {
     
     let widthSize:CGFloat = 330;
     let heightSize:CGFloat = 43;
     let fontSize:CGFloat = 14;
+    
+    @State var phoneNumber: String = "";
+    
     
     var body: some View {
         ZStack {
@@ -26,12 +31,12 @@ struct PhoneNumberPage: View {
                 
                 
                 // upper part
-                VStack {
+                VStack(spacing: 30) {
                     Text("What's your phone number?")
                         .frame(width: widthSize)
                         .font(.system(size: 37, weight: .semibold))
-                        
-
+                    
+                    
                     
                     
                     Text("We take pride in our community by making sure everyone on WhyKnotMe is authentic.")
@@ -39,6 +44,26 @@ struct PhoneNumberPage: View {
                         .frame(width: widthSize)
                     
                     // Input Area
+                    
+                    HStack {
+                        
+                        // Country Code
+                        
+                        
+                        
+                        // Phone Number
+                        TextField("Phone Number", text: $phoneNumber) // Text NEEDS TO BE EDITED
+                            .frame(width: widthSize, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .background(Color.white)
+                            .cornerRadius(15)
+                            .font(.system(size: 34))
+                            .multilineTextAlignment(.center)
+                            .keyboardType(.numberPad)
+                            .foregroundColor(Color.black)
+                        //                        .padding(10)
+                        //                        .paddin(4)
+                    }
+                    
                     
                     // Check box (I agree..)
                     
