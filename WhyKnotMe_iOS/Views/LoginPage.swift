@@ -10,7 +10,8 @@ import SwiftUI
 struct LoginPage: View {
     
     let widthSize:CGFloat = 330;
-    let heightSize:CGFloat = 45;
+    let heightSize:CGFloat = 43;
+    let fontSize:CGFloat = 14;
     
     var body: some View {
         ZStack() {
@@ -32,7 +33,7 @@ struct LoginPage: View {
                 Spacer()
                 
                 // sign up options
-                VStack(spacing: 15) {
+                VStack(spacing: 13) {
                     // Continue with Apple Button
                     NavigationLink(
                         destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
@@ -43,6 +44,7 @@ struct LoginPage: View {
                                 .background(Color.white)
                                 .foregroundColor(.black)
                                 .cornerRadius(30)
+                                .font(.system(size: fontSize))
                         })
                     
                     
@@ -57,6 +59,7 @@ struct LoginPage: View {
                                 .background(Color.blue)
                                 .foregroundColor(.white)
                                 .cornerRadius(30)
+                                .font(.system(size: fontSize))
                         })
                     
                     
@@ -67,27 +70,43 @@ struct LoginPage: View {
                         label: {
                             Text("Use Cellphone Number")
                                 .bold()
-                                .frame(width: 300, height: 30)
+                                .frame(width: widthSize, height: 30)
                                 .foregroundColor(.white)
+                                .font(.system(size: fontSize))
                         })
                     
                 }
                 
                 
-                VStack {
+                VStack(spacing: 10) {
                     Text("Don't worry! We will not post to Facebook")
                         .foregroundColor(Color.white)
                         .font(.system(size: 13))
                     
                     
-                    HStack {
-                        Link("Visit Apple", destination: URL(string: "https://www.apple.com")!)
-        
+                    HStack(spacing: 30) {
+                        // Link to Terms of Service
+                        Link(destination: URL(string: "https://www.apple.com")!, label: {
+                            Text("Terms of Service")
+                                .underline()
+                        })
+                        .foregroundColor(Color.white)
+                        .font(.system(size: 13))
+                        
+                        
+                        // Link to privacy Policy
+                        Link(destination: URL(string: "https://www.apple.com")!, label: {
+                            Text("Privacy Policy")
+                                .underline()
+                        })
+                        .foregroundColor(Color.white)
+                        .font(.system(size: 13))
+                        
                     }
                     
                     
                 }
-
+                
                 
                 
                 // Placeholder for spacing
@@ -104,6 +123,7 @@ struct LoginPage: View {
 struct LoginPage_Previews: PreviewProvider {
     static var previews: some View {
         LoginPage()
+            .previewLayout(.device)
             .previewDevice("iPhone 11 Pro")
     }
 }
