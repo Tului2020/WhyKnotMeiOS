@@ -29,12 +29,13 @@ struct PhoneNumberPage: View {
                 VStack {
                     Text("What's your phone number?")
                         .frame(width: widthSize)
+                        .font(.system(size: 37, weight: .semibold))
+                        
 
                     
                     
-                    Text("We take pride in our community by making sure everyone on WhyKnotMe is authentic")
-                        .font(.largeTitle)
-                        .lineLimit(4)
+                    Text("We take pride in our community by making sure everyone on WhyKnotMe is authentic.")
+                        .font(.system(size: 15))
                         .frame(width: widthSize)
                     
                     // Input Area
@@ -46,9 +47,12 @@ struct PhoneNumberPage: View {
                 }
                 
                 // lower part
-                HStack {
-                    Image("")
+                HStack(spacing: 3) {
+                    Image("SecurityCheck")
+                    
                     Text("We will never share your phone number with anyone and it will not be on your profile")
+                        .frame(width: widthSize)
+                        .font(.system(size: 15))
                     
                 }
                 
