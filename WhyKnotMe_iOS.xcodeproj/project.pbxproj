@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED3230FC2660797300FB614A /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3230FB2660797300FB614A /* LoginPage.swift */; };
 		EDECF13C266054ED00CF5AFD /* WhyKnotMe_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDECF13B266054ED00CF5AFD /* WhyKnotMe_iOSApp.swift */; };
 		EDECF13E266054ED00CF5AFD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDECF13D266054ED00CF5AFD /* ContentView.swift */; };
 		EDECF140266054EE00CF5AFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDECF13F266054EE00CF5AFD /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED3230FB2660797300FB614A /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		EDECF138266054ED00CF5AFD /* WhyKnotMe_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhyKnotMe_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDECF13B266054ED00CF5AFD /* WhyKnotMe_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhyKnotMe_iOSApp.swift; sourceTree = "<group>"; };
 		EDECF13D266054ED00CF5AFD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -33,6 +35,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED3230F42660706600FB614A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED3230FB2660797300FB614A /* LoginPage.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ED3230F52660706E00FB614A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		ED3230F62660707800FB614A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		EDECF12F266054ED00CF5AFD = {
 			isa = PBXGroup;
 			children = (
@@ -52,6 +76,9 @@
 		EDECF13A266054ED00CF5AFD /* WhyKnotMe_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				ED3230F62660707800FB614A /* ViewModels */,
+				ED3230F52660706E00FB614A /* Models */,
+				ED3230F42660706600FB614A /* Views */,
 				EDECF13B266054ED00CF5AFD /* WhyKnotMe_iOSApp.swift */,
 				EDECF13D266054ED00CF5AFD /* ContentView.swift */,
 				EDECF13F266054EE00CF5AFD /* Assets.xcassets */,
@@ -139,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDECF13E266054ED00CF5AFD /* ContentView.swift in Sources */,
+				ED3230FC2660797300FB614A /* LoginPage.swift in Sources */,
 				EDECF13C266054ED00CF5AFD /* WhyKnotMe_iOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
