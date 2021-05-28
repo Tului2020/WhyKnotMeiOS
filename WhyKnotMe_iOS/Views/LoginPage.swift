@@ -9,8 +9,8 @@ import SwiftUI
 
 struct LoginPage: View {
     
-    let widthSize:CGFloat = 370;
-    let heightSize:CGFloat = 55;
+    let widthSize:CGFloat = 330;
+    let heightSize:CGFloat = 45;
     
     var body: some View {
         ZStack() {
@@ -73,9 +73,22 @@ struct LoginPage: View {
                     
                 }
                 
-                Text("Don't worry! We will not post to Facebook")
-                    .foregroundColor(Color.white)
-                    .font(.system(size: 13))
+                
+                VStack {
+                    Text("Don't worry! We will not post to Facebook")
+                        .foregroundColor(Color.white)
+                        .font(.system(size: 13))
+                    
+                    
+                    HStack {
+                        Link("Visit Apple", destination: URL(string: "https://www.apple.com")!)
+        
+                    }
+                    
+                    
+                }
+
+                
                 
                 // Placeholder for spacing
                 Spacer();
@@ -91,6 +104,7 @@ struct LoginPage: View {
 struct LoginPage_Previews: PreviewProvider {
     static var previews: some View {
         LoginPage()
+            .previewDevice("iPhone 11 Pro")
     }
 }
 
