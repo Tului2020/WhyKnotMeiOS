@@ -9,7 +9,15 @@ import SwiftUI
 
 struct ApplePage: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            
+            // background
+            Image("background")
+                .resizable()
+                .frame(width: 600.0, height: 1000.0)
+            
+            Text("Apple Sign up Page")
+        }
     }
 }
 
