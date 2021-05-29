@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AuthenticationServices
 
 struct LoginPage: View {
     
@@ -34,19 +35,35 @@ struct LoginPage: View {
                 
                 // sign up options
                 VStack(spacing: 13) {
-                    // Continue with Apple Button
-                    NavigationLink(
-                        destination: ApplePage(),
-                        label: {
-                            Text("Continue with Apple")
-                                .bold()
-                                .frame(width: widthSize, height: heightSize, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                .background(Color.white)
-                                .foregroundColor(.black)
-                                .cornerRadius(30)
-                                .font(.system(size: fontSize))
-                        })
                     
+                    
+                    
+                    
+                    // Continue with Apple Button
+                    //                    NavigationLink(
+                    //                        destination: ApplePage(),
+                    //                        label: {
+                    //                            Text("Continue with Apple")
+                    //                                .bold()
+                    //                                .frame(width: widthSize, height: heightSize, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    //                                .background(Color.white)
+                    //                                .foregroundColor(.black)
+                    //                                .cornerRadius(30)
+                    //                                .font(.system(size: fontSize))
+                    //                        })
+                    SignInWithAppleButton(
+                        onRequest: { request in
+                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+                        },
+                        onCompletion: { result in
+                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+                        }
+                    )
+                    .frame(width: widthSize, height: heightSize, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .background(Color.white)
+                    .foregroundColor(.black)
+                    .cornerRadius(30)
+                    .font(.system(size: fontSize))
                     
                     
                     // Continue with Facebook Button

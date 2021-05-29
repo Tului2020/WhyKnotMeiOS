@@ -7,8 +7,7 @@
 
 import SwiftUI
 import iPhoneNumberField
-//import iPh
-
+//import AuthenticationServices
 
 struct PhoneNumberPage: View {
     
@@ -17,7 +16,8 @@ struct PhoneNumberPage: View {
     let fontSize:CGFloat = 14;
     
     @State var phoneNumber: String = "";
-    @State var phoneEditing = false
+    @State var phoneEditing = false;
+    @State var checked = false;
     
     
     var body: some View {
@@ -59,26 +59,44 @@ struct PhoneNumberPage: View {
                         .padding(15)
                         .background(Color.white)
                         .cornerRadius(10)
-//                        .shadow(color: phoneEditing ? Color.gray : Color.white, radius: 10)
+                        //                        .shadow(color: phoneEditing ? Color.gray : Color.white, radius: 10)
                         .padding()
                         .frame(width: widthSize, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     
                     
                     // Check box (I agree..)
+                    HStack {
+                        
+                        
+                        
+//                        Toggle(isOn: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is On@*/.constant(true)/*@END_MENU_TOKEN@*/) {
+//                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Label@*/Text("Label")/*@END_MENU_TOKEN@*/
+//                        }
+//                        .frame(width: widthSize)
+                        
+                        
+                        
+                        
+
+                    }
+                    
                     
                     
                     
                 }
                 
-                // lower part
-                HStack(spacing: 3) {
+                // Disclosure
+                HStack(spacing: 8) {
+                    // icon
                     Image("SecurityCheck")
                     
+                    //
                     Text("We will never share your phone number with anyone and it will not be on your profile")
-                        .frame(width: widthSize)
-                        .font(.system(size: 15))
+                        .frame(width: widthSize * CGFloat(0.9))
+                        .font(.system(size: 14))
                     
                 }
+                //                .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
                 
             }
