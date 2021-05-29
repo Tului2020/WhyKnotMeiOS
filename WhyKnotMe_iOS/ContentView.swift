@@ -14,7 +14,7 @@ struct ContentView: View {
             
             ZStack {
                 LoginPage()
-                    .offset(y:-20)
+                    .offset(y:-60)
                 
                 
             }

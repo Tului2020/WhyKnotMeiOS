@@ -12,7 +12,7 @@ struct LoginPage: View {
     
     let widthSize:CGFloat = 330;
     let heightSize:CGFloat = 43;
-    let fontSize:CGFloat = 14;
+    let fontSize:CGFloat = 16;
     
     var body: some View {
         ZStack {
@@ -40,30 +40,30 @@ struct LoginPage: View {
                     
                     
                     // Continue with Apple Button
-                    //                    NavigationLink(
-                    //                        destination: ApplePage(),
-                    //                        label: {
-                    //                            Text("Continue with Apple")
-                    //                                .bold()
-                    //                                .frame(width: widthSize, height: heightSize, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    //                                .background(Color.white)
-                    //                                .foregroundColor(.black)
-                    //                                .cornerRadius(30)
-                    //                                .font(.system(size: fontSize))
-                    //                        })
-                    SignInWithAppleButton(
-                        onRequest: { request in
-                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                        },
-                        onCompletion: { result in
-                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-                        }
-                    )
-                    .frame(width: widthSize, height: heightSize, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    .background(Color.white)
-                    .foregroundColor(.black)
-                    .cornerRadius(30)
-                    .font(.system(size: fontSize))
+                    NavigationLink(
+                        destination: ApplePage(),
+                        label: {
+                            Text("Sign in with Apple")
+                                .bold()
+                                .frame(width: widthSize, height: heightSize, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .background(Color.white)
+                                .foregroundColor(.black)
+                                .cornerRadius(30)
+                                .font(.system(size: fontSize))
+                        })
+//                    SignInWithAppleButton(
+//                        onRequest: { request in
+//                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+//                        },
+//                        onCompletion: { result in
+//                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
+//                        }
+//                    )
+//                    .frame(width: widthSize, height: heightSize, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                    .background(Color.white)
+//                    .foregroundColor(.black)
+//                    .cornerRadius(30)
+//                    .font(.system(size: fontSize))
                     
                     
                     // Continue with Facebook Button
@@ -73,8 +73,8 @@ struct LoginPage: View {
                             Text("Continue with Facebook")
                                 .bold()
                                 .frame(width: widthSize, height: heightSize)
-                                .background(Color.blue)
-                                .foregroundColor(.white)
+                                .background(Color.white)
+                                .foregroundColor(.black)
                                 .cornerRadius(30)
                                 .font(.system(size: fontSize))
                         })
@@ -87,9 +87,12 @@ struct LoginPage: View {
                         label: {
                             Text("Use Cellphone Number")
                                 .bold()
-                                .frame(width: widthSize, height: 30)
-                                .foregroundColor(.white)
+                                .frame(width: widthSize, height: heightSize)
+                                .background(Color.white)
+                                .foregroundColor(.black)
+                                .cornerRadius(30)
                                 .font(.system(size: fontSize))
+
                         })
                     
                 }
