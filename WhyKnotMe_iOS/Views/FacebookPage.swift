@@ -6,17 +6,36 @@
 //
 
 import SwiftUI
+import iPhoneNumberField
+
+
 
 struct FacebookPage: View {
+    
+    @State var text: String = "";
+    @State var isEditing = false
+    
+    
     var body: some View {
         ZStack {
             
-            // background
-            Image("background")
-                .resizable()
-                .frame(width: 600.0, height: 1000.0)
             
-            Text("Facebook Sign up Page")
+
+            
+            
+            
+            
+            
+            
+            
+            // background
+//            Image("background")
+//                .resizable()
+//                .frame(width: 600.0, height: 1000.0)
+//
+//            Text("Facebook Sign up Page")
+            
+            
         }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import iPhoneNumberField
 //import iPh
 
 
@@ -16,6 +17,7 @@ struct PhoneNumberPage: View {
     let fontSize:CGFloat = 14;
     
     @State var phoneNumber: String = "";
+    @State var phoneEditing = false
     
     
     var body: some View {
@@ -45,24 +47,21 @@ struct PhoneNumberPage: View {
                     
                     // Input Area
                     
-                    HStack {
-                        
-                        // Country Code
-                        
-                        
-                        
-                        // Phone Number
-                        TextField("Phone Number", text: $phoneNumber) // Text NEEDS TO BE EDITED
-                            .frame(width: widthSize, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .background(Color.white)
-                            .cornerRadius(15)
-                            .font(.system(size: 34))
-                            .multilineTextAlignment(.center)
-                            .keyboardType(.numberPad)
-                            .foregroundColor(Color.black)
-                        //                        .padding(10)
-                        //                        .paddin(4)
-                    }
+                    iPhoneNumberField("(000) 000-0000", text: $phoneNumber)
+                        .flagHidden(false)
+                        .flagSelectable(true)
+                        .font(UIFont(size: 20, weight: .semibold, design: .monospaced))
+                        .maximumDigits(10)
+                        .foregroundColor(Color.black)
+                        .clearButtonMode(.whileEditing)
+                        .onClear { _ in phoneEditing.toggle() }
+                        .accentColor(Color.orange)
+                        .padding(15)
+                        .background(Color.white)
+                        .cornerRadius(10)
+//                        .shadow(color: phoneEditing ? Color.gray : Color.white, radius: 10)
+                        .padding()
+                        .frame(width: widthSize, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     
                     
                     // Check box (I agree..)
@@ -83,16 +82,16 @@ struct PhoneNumberPage: View {
                 
                 
             }
-            
-            
-            
-            
         }
     }
 }
 
+
+
 struct PhoneNumberPage_Previews: PreviewProvider {
     static var previews: some View {
-        PhoneNumberPage()
+        Group {
+            PhoneNumberPage()
+        }
     }
 }
