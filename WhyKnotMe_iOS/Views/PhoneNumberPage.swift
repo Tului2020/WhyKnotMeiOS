@@ -20,6 +20,11 @@ struct PhoneNumberPage: View {
     @State var checked = false;
     
     
+    @State var isChecked = false;
+    func toggle() {
+        isChecked = !isChecked
+    }
+    
     var body: some View {
         ZStack {
             
@@ -47,7 +52,7 @@ struct PhoneNumberPage: View {
                     
                     // Input Area
                     
-                    iPhoneNumberField("(000) 000-0000", text: $phoneNumber)
+                    iPhoneNumberField("111", text: $phoneNumber)
                         .flagHidden(false)
                         .flagSelectable(true)
                         .font(UIFont(size: 20, weight: .semibold, design: .monospaced))
@@ -59,9 +64,10 @@ struct PhoneNumberPage: View {
                         .padding(15)
                         .background(Color.white)
                         .cornerRadius(10)
-                        //                        .shadow(color: phoneEditing ? Color.gray : Color.white, radius: 10)
                         .padding()
                         .frame(width: widthSize, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    //                        .defaultRegion("")
+                    //                        .place
                     
                     
                     // Check box (I agree..)
@@ -69,15 +75,19 @@ struct PhoneNumberPage: View {
                         
                         
                         
-//                        Toggle(isOn: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is On@*/.constant(true)/*@END_MENU_TOKEN@*/) {
-//                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Label@*/Text("Label")/*@END_MENU_TOKEN@*/
-//                        }
-//                        .frame(width: widthSize)
+                        Button(action: toggle) {
+                            Image(systemName: isChecked ? "checkmark.square.fill": "square.fill")
+                                .foregroundColor(Color.white)
+                        }
+                        
+                        Text("I agree to the Terms and Conditions")
                         
                         
                         
                         
-
+                        
+                        
+                        
                     }
                     
                     
