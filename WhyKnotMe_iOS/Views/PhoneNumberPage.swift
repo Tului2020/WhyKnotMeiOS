@@ -34,7 +34,7 @@ struct PhoneNumberPage: View {
                 .frame(width: 600.0, height: 1000.0)
             
             // content
-            VStack(spacing: 40) {
+            VStack(spacing: 130) {
                 
                 
                 // upper part
@@ -72,28 +72,21 @@ struct PhoneNumberPage: View {
                     
                     // Check box (I agree..)
                     HStack {
-                        
-                        
-                        
                         Button(action: toggle) {
                             Image(systemName: isChecked ? "checkmark.square.fill": "square.fill")
                                 .foregroundColor(Color.white)
                         }
                         
                         Text("I agree to the Terms and Conditions")
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+                            .font(.system(size: 15))
+//                            .frame(width: widthSize)
                     }
                     
                     
                     
                     
                 }
+
                 
                 // Disclosure
                 HStack(spacing: 8) {
