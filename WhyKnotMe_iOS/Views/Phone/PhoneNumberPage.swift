@@ -20,6 +20,7 @@ struct PhoneNumberPage: View {
     @State var isChecked = false;
     
     
+    
     func toggle() {
         isChecked = !isChecked
     }
@@ -86,24 +87,23 @@ struct PhoneNumberPage: View {
                     
                 }
                 
-                if (isChecked && phoneNumber.count == 14) {
-////                    print(isChecked)
-                    
-                    NavigationLink(
-                        destination: PhoneCodeVerificationPage(),
-                        label: {
-                            Text(String(phoneNumber.count))
-                                .bold()
-                                .frame(width: widthSize, height: heightSize)
-                                .background(Color.white)
-                                .foregroundColor(.black)
-                                .cornerRadius(30)
-                                .font(.system(size: fontSize))
-                        })
-                }
                 
-               
-
+                NavigationLink(
+                    destination: PhoneCodeVerificationPage(),
+                    label: {
+                        Text("Continue")
+                            .bold()
+                            .frame(width: widthSize, height: heightSize)
+                            .background(Color.white)
+                            .cornerRadius(30)
+                            .font(.system(size: fontSize))
+                            .foregroundColor((!isChecked || phoneNumber.count != 14) ? .gray : .black)
+                    })
+                    .disabled(!isChecked || phoneNumber.count != 14)
+                
+                
+                
+                
                 
                 
                 // Disclosure
