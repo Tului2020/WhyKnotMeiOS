@@ -84,13 +84,13 @@ struct LoginPage: View {
                                 .foregroundColor(.black)
                                 .cornerRadius(30)
                                 .font(.system(size: fontSize))
-                        })
+                        }).navigationBarBackButtonHidden(true)
                     
                     
                     
                     // User Cell Phone Number
                     NavigationLink(
-                        destination: PhoneNumberPage(),
+                        destination: PhoneNumberPage().navigationBarBackButtonHidden(true),
                         label: {
                             Text("Use Cellphone Number")
                                 .bold()
@@ -99,7 +99,6 @@ struct LoginPage: View {
                                 .foregroundColor(.black)
                                 .cornerRadius(30)
                                 .font(.system(size: fontSize))
-
                         })
                     
                 }

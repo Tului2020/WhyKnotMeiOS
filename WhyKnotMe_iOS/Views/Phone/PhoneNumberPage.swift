@@ -15,9 +15,9 @@ struct PhoneNumberPage: View {
     let heightSize:CGFloat = 43;
     let fontSize:CGFloat = 14;
     
-    @State var phoneNumber: String = "";
+    @State var phoneNumber: String = "(510)207-7042";
     @State var phoneEditing = false;
-    @State var isChecked = false;
+    @State var isChecked = true;
     
     
     
@@ -34,18 +34,18 @@ struct PhoneNumberPage: View {
                 .frame(width: 600.0, height: 1000.0)
             
             // content
-            VStack(spacing: 130) {
+            VStack(spacing: 100) {
                 
                 
                 // upper part
                 VStack(spacing: 30) {
+                    // First part
                     Text("What's your phone number?")
                         .frame(width: widthSize)
                         .font(.system(size: 37, weight: .semibold))
                     
-                    
-                    
-                    
+     
+                    // Second part
                     Text("We take pride in our community by making sure everyone on WhyKnotMe is authentic.")
                         .font(.system(size: 15))
                         .frame(width: widthSize)
@@ -66,8 +66,6 @@ struct PhoneNumberPage: View {
                         .cornerRadius(10)
                         .padding()
                         .frame(width: widthSize, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    //                        .defaultRegion("")
-                    //                        .place
                     
                     
                     // Check box (I agree..)
@@ -79,30 +77,20 @@ struct PhoneNumberPage: View {
                         
                         Text("I agree to the Terms and Conditions")
                             .font(.system(size: 15))
-                        //                            .frame(width: widthSize)
                     }
-                    
-                    
-                    
-                    
                 }
                 
                 
                 NavigationLink(
                     destination: PhoneCodeVerificationPage(),
                     label: {
-                        Text("Continue")
-                            .bold()
-                            .frame(width: widthSize, height: heightSize)
-                            .background(Color.white)
-                            .cornerRadius(30)
-                            .font(.system(size: fontSize))
-                            .foregroundColor((!isChecked || phoneNumber.count != 14) ? .gray : .black)
+                        Image("NextArrow")
+                            .frame(width: widthSize / 7,  height: heightSize)
+                            .background(Color.black)
+                            .cornerRadius(widthSize / 5)
                     })
                     .disabled(!isChecked || phoneNumber.count != 14)
-                
-                
-                
+                    .offset(x: 120)
                 
                 
                 
@@ -111,15 +99,12 @@ struct PhoneNumberPage: View {
                     // icon
                     Image("SecurityCheck")
                     
-                    //
+                    // Description
                     Text("We will never share your phone number with anyone and it will not be on your profile")
-                        .frame(width: widthSize * CGFloat(0.9))
-                        .font(.system(size: 14))
+                        .frame(width: widthSize * CGFloat(0.85))
+                        .font(.system(size: 13))
                     
                 }
-                //                .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                
-                
             }
         }
     }
