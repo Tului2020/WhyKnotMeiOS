@@ -43,13 +43,20 @@ struct LoginPage: View {
                     NavigationLink(
                         destination: ApplePage(),
                         label: {
-                            Text("Sign in with Apple")
-                                .bold()
-                                .frame(width: widthSize, height: heightSize, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                .background(Color.white)
-                                .foregroundColor(.black)
-                                .cornerRadius(30)
-                                .font(.system(size: fontSize))
+                            
+                            HStack {
+                                Image(systemName: "applelogo")
+                            
+                                Text("Sign in with Apple")
+                                    .bold()
+
+                            }
+                            .frame(width: widthSize, height: heightSize, alignment: .center)
+                            .background(Color.white)
+                            .foregroundColor(.black)
+                            .cornerRadius(30)
+                            .font(.system(size: fontSize))
+                            
                         })
 //                    SignInWithAppleButton(
 //                        onRequest: { request in

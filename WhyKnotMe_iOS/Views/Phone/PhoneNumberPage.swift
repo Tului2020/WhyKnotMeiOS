@@ -79,14 +79,31 @@ struct PhoneNumberPage: View {
                         
                         Text("I agree to the Terms and Conditions")
                             .font(.system(size: 15))
-//                            .frame(width: widthSize)
+                        //                            .frame(width: widthSize)
                     }
                     
                     
                     
                     
                 }
+                
+                if (isChecked && phoneNumber) {
+                    
+                }
+                
+                NavigationLink(
+                    destination: PhoneCodeVerificationPage(),
+                    label: {
+                        Text("Continue")
+                            .bold()
+                            .frame(width: widthSize, height: heightSize)
+                            .background(Color.white)
+                            .foregroundColor(.black)
+                            .cornerRadius(30)
+                            .font(.system(size: fontSize))
+                    })
 
+                
                 
                 // Disclosure
                 HStack(spacing: 8) {
