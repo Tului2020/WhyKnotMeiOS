@@ -15,7 +15,7 @@ struct PhoneNumberPage: View {
     let heightSize:CGFloat = 43;
     let fontSize:CGFloat = 14;
     
-    @State var phoneNumber: String = "(510)207-7042";
+    @State var phoneNumber: String = "(510) 207-7042";
     @State var phoneEditing = false;
     @State var isChecked = true;
     
