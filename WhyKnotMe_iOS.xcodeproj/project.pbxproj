@@ -11,8 +11,8 @@
 		ED323102266084A600FB614A /* FacebookPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED323101266084A600FB614A /* FacebookPage.swift */; };
 		ED323104266084B800FB614A /* PhoneNumberPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED323103266084B800FB614A /* PhoneNumberPage.swift */; };
 		ED323108266084D400FB614A /* ApplePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED323107266084D400FB614A /* ApplePage.swift */; };
-		ED4B5F002665B1B600AD1A0C /* PhoneCodeVerificationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4B5EFF2665B1B600AD1A0C /* PhoneCodeVerificationPage.swift */; };
 		ED7153612662DE870096806B /* iPhoneNumberField in Frameworks */ = {isa = PBXBuildFile; productRef = ED7153602662DE870096806B /* iPhoneNumberField */; };
+		EDE09F192667028100CE4C19 /* PhoneCodeVerificationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE09F182667028100CE4C19 /* PhoneCodeVerificationPage.swift */; };
 		EDECF13C266054ED00CF5AFD /* WhyKnotMe_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDECF13B266054ED00CF5AFD /* WhyKnotMe_iOSApp.swift */; };
 		EDECF13E266054ED00CF5AFD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDECF13D266054ED00CF5AFD /* ContentView.swift */; };
 		EDECF140266054EE00CF5AFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDECF13F266054EE00CF5AFD /* Assets.xcassets */; };
@@ -24,7 +24,7 @@
 		ED323101266084A600FB614A /* FacebookPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookPage.swift; sourceTree = "<group>"; };
 		ED323103266084B800FB614A /* PhoneNumberPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberPage.swift; sourceTree = "<group>"; };
 		ED323107266084D400FB614A /* ApplePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePage.swift; sourceTree = "<group>"; };
-		ED4B5EFF2665B1B600AD1A0C /* PhoneCodeVerificationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCodeVerificationPage.swift; sourceTree = "<group>"; };
+		EDE09F182667028100CE4C19 /* PhoneCodeVerificationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCodeVerificationPage.swift; sourceTree = "<group>"; };
 		EDECF138266054ED00CF5AFD /* WhyKnotMe_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhyKnotMe_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDECF13B266054ED00CF5AFD /* WhyKnotMe_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhyKnotMe_iOSApp.swift; sourceTree = "<group>"; };
 		EDECF13D266054ED00CF5AFD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				ED323103266084B800FB614A /* PhoneNumberPage.swift */,
-				ED4B5EFF2665B1B600AD1A0C /* PhoneCodeVerificationPage.swift */,
+				EDE09F182667028100CE4C19 /* PhoneCodeVerificationPage.swift */,
 			);
 			path = Phone;
 			sourceTree = "<group>";
@@ -209,7 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED4B5F002665B1B600AD1A0C /* PhoneCodeVerificationPage.swift in Sources */,
+				EDE09F192667028100CE4C19 /* PhoneCodeVerificationPage.swift in Sources */,
 				ED323102266084A600FB614A /* FacebookPage.swift in Sources */,
 				ED323104266084B800FB614A /* PhoneNumberPage.swift in Sources */,
 				EDECF13E266054ED00CF5AFD /* ContentView.swift in Sources */,
