@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PhoneCodeVerificationPage: View {
     
-    private func getImageName(number: Int) -> String {
+    private func getImage(number: Int) -> String {
         return String(number) + ".square"
     }
     
@@ -18,7 +18,7 @@ struct PhoneCodeVerificationPage: View {
     let fontSize:CGFloat = 16;
     let numberOfDigits: Int = 4;
     
-    @State var verificationCode: String = "";
+    @State var verificationCode: String = "0313123";
     
     
     var body: some View {
@@ -37,19 +37,20 @@ struct PhoneCodeVerificationPage: View {
                 
                 ZStack {
                     TextField("Placeholder", text: $verificationCode)
-                        .background(Color.white)
+//                        .background(Color.white)
+                        .foregroundColor(Color.clear)
                         .frame(width: widthSize)
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        .cornerRadius(100)
+//                        .cornerRadius(100)
                     
-//                        .frame(width: widthSize, height: heightSize, alignment: )
-                    
+
                     HStack {
-//                        ForEach(1...10, id: \.self) {
-//                            Image(systemName: "square")
-//                        }
-                        ForEach(0...numberOfDigits, id: \.self) {
+                        
+                        
+                        ForEach(0..<verificationCode.count, id: \.self) {
                             Image(systemName: "\($0).square")
+                                .resizable()
+                                .frame(width: 30, height: 30)
                         }
                     }
                     
