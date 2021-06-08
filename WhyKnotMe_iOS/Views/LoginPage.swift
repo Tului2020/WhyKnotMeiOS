@@ -52,7 +52,11 @@ struct LoginPage: View {
                             .foregroundColor(.black)
                             .cornerRadius(30)
 
-                        }).navigationBarBackButtonHidden(true)
+                        })
+                        .navigationBarBackButtonHidden(true)
+//                        .navigationBarItems(leading: View)
+                            
+//                        .navigationBarHidden(true)
                     
                     
                     
@@ -136,6 +140,11 @@ struct LoginPage: View {
         }
     }
 }
+
+
+
+
+
 
 struct LoginPage_Previews: PreviewProvider {
     static var previews: some View {

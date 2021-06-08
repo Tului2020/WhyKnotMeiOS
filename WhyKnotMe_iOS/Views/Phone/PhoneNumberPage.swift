@@ -11,10 +11,11 @@ import iPhoneNumberField
 
 struct PhoneNumberPage: View {
     
-    let widthSize:CGFloat = 330;
+    let widthSize:CGFloat = 319;
     let heightSize:CGFloat = 43;
     let fontSize:CGFloat = 14;
     
+    @State var countryCode: String = "1";
     @State var phoneNumber: String = "(510) 207-7042";
     @State var phoneEditing = false;
     @State var isChecked = true;
@@ -40,9 +41,19 @@ struct PhoneNumberPage: View {
                 // upper part
                 VStack(spacing: 30) {
                     // First part
-                    Text("What's your phone number?")
-                        .frame(width: widthSize)
-                        .font(.system(size: 37, weight: .semibold))
+                    
+                    HStack {
+                        Image(systemName: "chevron.left")
+                        
+                        Text("What's your phone number?")
+                            .frame(alignment: .topLeading)
+                            .font(.system(size: 24, weight: .semibold))
+                    }
+
+                    
+                    
+                    
+                        
                     
      
                     // Second part
@@ -51,7 +62,7 @@ struct PhoneNumberPage: View {
                         .frame(width: widthSize)
                     
                     // Input Area
-                    
+                    // This needs to change per the new design
                     iPhoneNumberField("111", text: $phoneNumber)
                         .flagHidden(false)
                         .flagSelectable(true)
@@ -65,7 +76,7 @@ struct PhoneNumberPage: View {
                         .background(Color.white)
                         .cornerRadius(10)
                         .padding()
-                        .frame(width: widthSize, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(width: widthSize)
                     
                     
                     // Check box (I agree..)
@@ -78,15 +89,17 @@ struct PhoneNumberPage: View {
                         Text("I agree to the Terms and Conditions")
                             .font(.system(size: 15))
                     }
+                    .frame(width: widthSize, alignment: .leading)
                 }
                 
                 
                 NavigationLink(
                     destination: PhoneCodeVerificationPage(),
                     label: {
-                        Image("NextArrow")
+                        Image(systemName: "chevron.right")
                             .frame(width: widthSize / 7,  height: heightSize)
                             .background(Color.black)
+                            .foregroundColor(.white)
                             .cornerRadius(widthSize / 5)
                     })
                     .disabled(!isChecked || phoneNumber.count != 14)
@@ -102,7 +115,7 @@ struct PhoneNumberPage: View {
                     // Description
                     Text("We will never share your phone number with anyone and it will not be on your profile")
                         .frame(width: widthSize * CGFloat(0.85))
-                        .font(.system(size: 13))
+                        .font(.system(size: 15))
                     
                 }
             }
