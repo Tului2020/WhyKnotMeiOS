@@ -34,7 +34,27 @@ struct LoginPage: View {
                 Spacer()
                 
                 // sign up options
-                VStack(spacing: 13) {
+                VStack(spacing: 8) {
+                    
+                    
+                    // Continue with Facebook Button
+                    NavigationLink(
+                        destination: FacebookPage(),
+                        label: {
+                            HStack {
+                                Image("FacebookLogo")
+                                Text("Continue with Facebook")
+                                    .bold()
+                                    .font(.system(size: fontSize))
+                            }
+                            .frame(width: widthSize, height: heightSize)
+                            .background(Color.white)
+                            .foregroundColor(.black)
+                            .cornerRadius(30)
+
+                        }).navigationBarBackButtonHidden(true)
+                    
+                    
                     
                     
                     
@@ -47,7 +67,7 @@ struct LoginPage: View {
                             HStack {
                                 Image(systemName: "applelogo")
                             
-                                Text("Sign in with Apple")
+                                Text("Continue with Apple")
                                     .bold()
 
                             }
@@ -56,36 +76,7 @@ struct LoginPage: View {
                             .foregroundColor(.black)
                             .cornerRadius(30)
                             .font(.system(size: fontSize))
-                            
                         })
-//                    SignInWithAppleButton(
-//                        onRequest: { request in
-//                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-//                        },
-//                        onCompletion: { result in
-//                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
-//                        }
-//                    )
-//                    .frame(width: widthSize, height: heightSize, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-//                    .background(Color.white)
-//                    .foregroundColor(.black)
-//                    .cornerRadius(30)
-//                    .font(.system(size: fontSize))
-                    
-                    
-                    // Continue with Facebook Button
-                    NavigationLink(
-                        destination: FacebookPage(),
-                        label: {
-                            Text("Continue with Facebook")
-                                .bold()
-                                .frame(width: widthSize, height: heightSize)
-                                .background(Color.white)
-                                .foregroundColor(.black)
-                                .cornerRadius(30)
-                                .font(.system(size: fontSize))
-                        }).navigationBarBackButtonHidden(true)
-                    
                     
                     
                     // User Cell Phone Number
@@ -95,9 +86,9 @@ struct LoginPage: View {
                             Text("Use Cellphone Number")
                                 .bold()
                                 .frame(width: widthSize, height: heightSize)
-                                .background(Color.white)
-                                .foregroundColor(.black)
-                                .cornerRadius(30)
+//                                .background(Color.white)
+                                .foregroundColor(.white)
+//                                .cornerRadius(30)
                                 .font(.system(size: fontSize))
                         })
                     

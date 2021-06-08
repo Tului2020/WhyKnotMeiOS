@@ -18,7 +18,7 @@ struct PhoneCodeVerificationPage: View {
     let fontSize:CGFloat = 16;
     let numberOfDigits: Int = 4;
     
-    @State var verificationCode: String = "0313123";
+    @State var verificationCode: String = "";
     
     
     var body: some View {
@@ -36,19 +36,20 @@ struct PhoneCodeVerificationPage: View {
                 
                 
                 ZStack {
-                    TextField("Placeholder", text: $verificationCode)
-//                        .background(Color.white)
+                    TextField("", text: $verificationCode)
                         .foregroundColor(Color.clear)
                         .frame(width: widthSize)
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-//                        .cornerRadius(100)
+
                     
 
                     HStack {
                         
-                        
                         ForEach(0..<verificationCode.count, id: \.self) {
-                            Image(systemName: "\($0).square")
+//                            Image(systemName: "\($0).square")
+//                                .resizable()
+//                                .frame(width: 30, height: 30)
+                            Image(systemName: "\(Array(verificationCode)[$0]).square")
                                 .resizable()
                                 .frame(width: 30, height: 30)
                         }
