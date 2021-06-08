@@ -29,7 +29,14 @@ struct PhoneCodeVerificationPage: View {
             
             VStack {
                 
-                Text("Verify your phone number")
+                HStack {
+                    Image(systemName: "chevron.left")
+                    
+                    
+                    Text("Verify your phone number")
+                        .font(.system(size: 24, weight: .bold))
+                }
+                
                 
                 Text("Enter the code we've sent by text to ")
                 

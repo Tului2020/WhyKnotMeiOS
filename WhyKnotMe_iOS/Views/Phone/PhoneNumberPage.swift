@@ -15,8 +15,13 @@ struct PhoneNumberPage: View {
     let heightSize:CGFloat = 43;
     let fontSize:CGFloat = 14;
     
+    
+//    @EnvironmentObject var appInfo: AppInformation;
+    
+    
+    
     @State var countryCode: String = "1";
-    @State var phoneNumber: String = "(510) 207-7042";
+    @State var phoneNumber: String = "";
     @State var phoneEditing = false;
     @State var isChecked = true;
     
@@ -49,6 +54,8 @@ struct PhoneNumberPage: View {
                             .frame(alignment: .topLeading)
                             .font(.system(size: 24, weight: .semibold))
                     }
+                    
+                    
 
                     
                     
@@ -60,6 +67,8 @@ struct PhoneNumberPage: View {
                     Text("We take pride in our community by making sure everyone on WhyKnotMe is authentic.")
                         .font(.system(size: 15))
                         .frame(width: widthSize)
+                    
+//                    Text(appInfo.phoneNumber)
                     
                     // Input Area
                     // This needs to change per the new design
