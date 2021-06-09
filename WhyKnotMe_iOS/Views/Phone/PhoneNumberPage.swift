@@ -11,8 +11,8 @@ import iPhoneNumberField
 
 struct PhoneNumberPage: View {
     
-    let widthSize:CGFloat = 319;
-    let heightSize:CGFloat = 43;
+//    let widthSize:CGFloat = 319;
+//    let heightSize:CGFloat = 43;
     let fontSize:CGFloat = 14;
     
     @ObservedObject var userInfo = userInformation();
@@ -60,7 +60,7 @@ struct PhoneNumberPage: View {
                     // Second part
                     Text("We take pride in our community by making sure everyone on WhyKnotMe is authentic.")
                         .font(.system(size: 15))
-                        .frame(width: widthSize)
+                        .frame(width: self.userInfo.defaultWidthSize)
                     
 //                    Text(appInfo.phoneNumber)
                     
@@ -69,16 +69,21 @@ struct PhoneNumberPage: View {
                     HStack(spacing: 30) {
                         TextField("Placeholder", text: self.$userInfo.countryCode)
                             .background(Color.white)
-                            .frame(width: widthSize / 5)
+                            .frame(width: self.userInfo.defaultWidthSize / 5)
+                            .multilineTextAlignment(.center)
+                            .font(.system(size: self.userInfo.defaultInputFontSize))
+                            .cornerRadius(10.0)
                         
                         
                         
-                        TextField(/*@START_MENU_TOKEN@*/"Placeholder"/*@END_MENU_TOKEN@*/, text: self.$userInfo.phoneNumber)
+                        TextField("Phone number", text: self.$userInfo.phoneNumber)
                             .background(Color.white)
+                            .font(.system(size: self.userInfo.defaultInputFontSize))
+                            .cornerRadius(10.0)
                         
                         
                         
-                    }.frame(width: widthSize)
+                    }.frame(width: self.userInfo.defaultWidthSize)
                     
                     
                     
@@ -90,9 +95,9 @@ struct PhoneNumberPage: View {
                         }
                         
                         Text("I agree to the Terms and Conditions")
-                            .font(.system(size: 15))
+                            .font(.system(size: self.userInfo.defaultFontSize))
                     }
-                    .frame(width: widthSize, alignment: .leading)
+                    .frame(width: self.userInfo.defaultWidthSize, alignment: .leading)
                 }
                 
                 
@@ -100,12 +105,12 @@ struct PhoneNumberPage: View {
                     destination: PhoneCodeVerificationPage(),
                     label: {
                         Image(systemName: "chevron.right")
-                            .frame(width: widthSize / 7,  height: heightSize)
+                            .frame(width: self.userInfo.defaultWidthSize / 7,  height: self.userInfo.defaultHeightSize / 2)
                             .background(Color.black)
                             .foregroundColor(.white)
-                            .cornerRadius(widthSize / 5)
+                            .cornerRadius(self.userInfo.defaultWidthSize / 5)
                     })
-                    .disabled(!isChecked || self.userInfo.phoneNumber.count != 14)
+                    .disabled(!isChecked || self.userInfo.phoneNumber.count != 10)
                     .offset(x: 120)
                 
                 
@@ -117,7 +122,7 @@ struct PhoneNumberPage: View {
                     
                     // Description
                     Text("We will never share your phone number with anyone and it will not be on your profile")
-                        .frame(width: widthSize * CGFloat(0.85))
+                        .frame(width: self.userInfo.defaultWidthSize * CGFloat(0.85))
                         .font(.system(size: 15))
                     
                 }

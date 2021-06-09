@@ -18,7 +18,7 @@ struct WhyKnotMe_iOSApp: App {
 }
 
 class userInformation: ObservableObject {
-    @Published var phoneNumber: String = "5102077042";
+    @Published var phoneNumber: String = "";
     @Published var countryCode: String = "1";
     @Published var termsAgreed: Bool = false;
     
@@ -34,6 +34,7 @@ class userInformation: ObservableObject {
     @State var defaultWidthSize: CGFloat = 319;
     @State var defaultHeightSize:CGFloat = 80
     @State var defaultFontSize: CGFloat = 16;
+    @State var defaultInputFontSize: CGFloat = 30;
     
     
     
