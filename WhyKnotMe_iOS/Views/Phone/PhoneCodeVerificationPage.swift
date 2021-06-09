@@ -13,6 +13,9 @@ struct PhoneCodeVerificationPage: View {
         return String(number) + ".square"
     }
     
+    @ObservedObject var userInfo = userInformation();
+    
+    
     let widthSize:CGFloat = 330;
     let heightSize:CGFloat = 80;
     let fontSize:CGFloat = 16;
@@ -38,36 +41,15 @@ struct PhoneCodeVerificationPage: View {
                 }
                 
                 
-                Text("Enter the code we've sent by text to ")
+                Text("Enter the code we've sent by text to +\(self.userInfo.countryCode + self.userInfo.phoneNumber)")
+                    .frame(width: self.userInfo.defaultWidthSize)
                 
                 
                 
-                ZStack {
-                    TextField("", text: $verificationCode)
-                        .foregroundColor(Color.clear)
-                        .frame(width: widthSize)
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-
-                    
-
-                    HStack {
-                        
-                        ForEach(0..<verificationCode.count, id: \.self) {
-//                            Image(systemName: "\($0).square")
-//                                .resizable()
-//                                .frame(width: 30, height: 30)
-                            Image(systemName: "\(Array(verificationCode)[$0]).square")
-                                .resizable()
-                                .frame(width: 30, height: 30)
-                        }
-                    }
-                    
-                }
                 
                 Text("The text should arrive in 30s")
                 
             }
-            //            Image(systemName: "square")
             
         }
     }

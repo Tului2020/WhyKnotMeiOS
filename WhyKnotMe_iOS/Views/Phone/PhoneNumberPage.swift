@@ -65,21 +65,21 @@ struct PhoneNumberPage: View {
 //                    Text(appInfo.phoneNumber)
                     
                     // Input Area
-                    // This needs to change per the new design
-                    iPhoneNumberField("111", text: self.$userInfo.phoneNumber)
-                        .flagHidden(false)
-                        .flagSelectable(true)
-                        .font(UIFont(size: 20, weight: .semibold, design: .monospaced))
-                        .maximumDigits(10)
-                        .foregroundColor(Color.black)
-                        .clearButtonMode(.whileEditing)
-                        .onClear { _ in phoneEditing.toggle() }
-                        .accentColor(Color.orange)
-                        .padding(15)
-                        .background(Color.white)
-                        .cornerRadius(10)
-                        .padding()
-                        .frame(width: widthSize)
+                    
+                    HStack(spacing: 30) {
+                        TextField("Placeholder", text: self.$userInfo.countryCode)
+                            .background(Color.white)
+                            .frame(width: widthSize / 5)
+                        
+                        
+                        
+                        TextField(/*@START_MENU_TOKEN@*/"Placeholder"/*@END_MENU_TOKEN@*/, text: self.$userInfo.phoneNumber)
+                            .background(Color.white)
+                        
+                        
+                        
+                    }.frame(width: widthSize)
+                    
                     
                     
                     // Check box (I agree..)
