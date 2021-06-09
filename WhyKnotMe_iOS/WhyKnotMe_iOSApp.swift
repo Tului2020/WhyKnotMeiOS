@@ -17,14 +17,18 @@ struct WhyKnotMe_iOSApp: App {
     }
 }
 
-class AppInformation: ObservableObject {
-    @Published var phoneNumber = "(510) 207-7042";
-    @Published var email = "";
-    @Published var firstName = "";
-    @Published var lastName = "";
-    @Published var birthDay = 0;
-    @Published var birthMonth = 0;
-    @Published var birthYear = 0;
-    @Published var gender = "";
+class userInformation: ObservableObject {
+    @Published var phoneNumber: String = "(510) 207-7042";
+    @Published var countryCode: Int = 1;
+    @Published var termsAgreed: Bool = false;
+    
+    
+    @Published var email: String = "";
+    @Published var firstName: String = "";
+    @Published var lastName: String = "";
+    @Published var birthDay: Int = 0;
+    @Published var birthMonth: Int = 0;
+    @Published var birthYear: Int = 0;
+    @Published var gender: String = "";
 }
 

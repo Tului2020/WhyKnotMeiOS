@@ -15,13 +15,7 @@ struct PhoneNumberPage: View {
     let heightSize:CGFloat = 43;
     let fontSize:CGFloat = 14;
     
-    
-//    @EnvironmentObject var appInfo: AppInformation;
-    
-    
-    
-    @State var countryCode: String = "1";
-    @State var phoneNumber: String = "";
+    @ObservedObject var userInfo = userInformation();
     @State var phoneEditing = false;
     @State var isChecked = true;
     
@@ -72,7 +66,7 @@ struct PhoneNumberPage: View {
                     
                     // Input Area
                     // This needs to change per the new design
-                    iPhoneNumberField("111", text: $phoneNumber)
+                    iPhoneNumberField("111", text: self.$userInfo.phoneNumber)
                         .flagHidden(false)
                         .flagSelectable(true)
                         .font(UIFont(size: 20, weight: .semibold, design: .monospaced))
@@ -111,7 +105,7 @@ struct PhoneNumberPage: View {
                             .foregroundColor(.white)
                             .cornerRadius(widthSize / 5)
                     })
-                    .disabled(!isChecked || phoneNumber.count != 14)
+                    .disabled(!isChecked || self.userInfo.phoneNumber.count != 14)
                     .offset(x: 120)
                 
                 
