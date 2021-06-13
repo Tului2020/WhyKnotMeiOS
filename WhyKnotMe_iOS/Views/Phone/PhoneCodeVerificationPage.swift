@@ -10,14 +10,12 @@ import SwiftUI
 struct PhoneCodeVerificationPage: View {
     
     @ObservedObject var userInfo: UserInfo;
+    @State var verificationCode = [nil, nil, nil, nil];
+    @State var verificationCode1: String = "";
+    @State var verificationCode2: String = "";
+    @State var verificationCode3: String = "";
+    @State var verificationCode4: String = "";
     
-    private func getImage(number: Int) -> String {
-        return String(number) + ".square"
-    }
-    
-    
-    
-    @State var verificationCode: String = "";
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
@@ -46,12 +44,38 @@ struct PhoneCodeVerificationPage: View {
                     self.presentationMode.wrappedValue.dismiss()
                 }, label: {
                     Text("Change")
+                        .foregroundColor(.primary)
+                        .underline()
                 })
                 
+                HStack {
+                    Group {
+                        TextField("x", text: self.$verificationCode1)
+                        TextField("x", text: self.$verificationCode2)
+                        TextField("x", text: self.$verificationCode3)
+                        TextField("x", text: self.$verificationCode4)
+                    }
+                    .multilineTextAlignment(.center)
+                    .frame(width: 55, height: 55, alignment: .center)
+                    .background(Color.white)
+                    .cornerRadius(10)
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    
+                }
                 
                 
                 
-                Text("The text should arrive in 30s")
+                
+                
+                HStack {
+                    Text("The text should arrive in 30s")
+                    Spacer()
+                    Text("Didn't receive a text")
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                        .underline()
+                }
+                .font(.system(size: 12))
+                
                 
             }
             .frame(width: userInfo.defaultWidthSize, height: userInfo.defaultContentHeight, alignment: .topLeading)
@@ -63,5 +87,6 @@ struct PhoneCodeVerificationPage: View {
 struct PhoneCodeVerificationPage_Previews: PreviewProvider {
     static var previews: some View {
         PhoneCodeVerificationPage(userInfo: UserInfo())
+            .previewDevice("iPhone 11 Pro")
     }
 }
