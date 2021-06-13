@@ -56,9 +56,9 @@ struct PhoneNumberPage: View {
                     
 
                     // Second part
-                    Text("We take pride in our community by making sure everyone on WhyKnotMe is authentic.")
-                        .font(.system(size: 15))
-                        .frame(width: self.userInfo.defaultWidthSize)
+                        Text("We take pride in our community by making sure everyone on WhyKnotMe is authentic.")
+                            .font(.system(size: 15))
+                            .frame(width: self.userInfo.defaultWidthSize, height: self.userInfo.defaultHeightSize)
                     
                     
                     
@@ -137,6 +137,7 @@ struct PhoneNumberPage: View {
                     
                 }
             }
+            .frame(height: userInfo.defaultContentHeight, alignment: .topLeading)
         }
     }
 }

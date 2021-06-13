@@ -39,6 +39,7 @@ struct PhoneCodeVerificationPage: View {
                 }
                 
                 Text("Enter the code we've sent by text to +\(self.userInfo.countryCode + self.userInfo.phoneNumber).")
+                    .padding(.top, 50)
                 
                 Button(action: {
                     self.presentationMode.wrappedValue.dismiss()
@@ -47,6 +48,7 @@ struct PhoneCodeVerificationPage: View {
                         .foregroundColor(.primary)
                         .underline()
                 })
+                
                 
                 HStack {
                     Group {
@@ -58,11 +60,10 @@ struct PhoneCodeVerificationPage: View {
                     .multilineTextAlignment(.center)
                     .frame(width: 55, height: 55, alignment: .center)
                     .background(Color.white)
-                    .cornerRadius(10)
+                    .cornerRadius(15)
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                     
-                }
-                
+                }.padding(.top, 50.0)
                 
                 
                 
@@ -74,10 +75,12 @@ struct PhoneCodeVerificationPage: View {
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                         .underline()
                 }
-                .font(.system(size: 12))
+                .padding(.top, 150.0)
+                .font(.system(size: 11))
                 
                 
             }
+            
             .frame(width: userInfo.defaultWidthSize, height: userInfo.defaultContentHeight, alignment: .topLeading)
             
         }
