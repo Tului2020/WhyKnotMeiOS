@@ -12,9 +12,10 @@ import iPhoneNumberField
 struct PhoneNumberPage: View {
 
     
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var userInfo: UserInfo;
     @State var phoneEditing = false;
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     
     
     func toggle() {

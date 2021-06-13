@@ -10,7 +10,7 @@ import SwiftUI
 
 
 class UserInfo: ObservableObject {
-    @Published var phoneNumber: String = "";
+    @Published var phoneNumber: String = "5102077042";
     @Published var countryCode: String = "1";
     @Published var termsAgreed: Bool = false;
     
@@ -28,5 +28,6 @@ class UserInfo: ObservableObject {
     var defaultFontSize: CGFloat = 16;
 
     var defaultInputHeightSize:CGFloat = 40;
+    var defaultContentHeight:CGFloat = 600;
     
 }
