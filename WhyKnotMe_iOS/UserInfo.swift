@@ -30,4 +30,6 @@ class UserInfo: ObservableObject {
     var defaultInputHeightSize:CGFloat = 40;
     var defaultContentHeight:CGFloat = 600;
     
+    var numPages: Int = 4;
+    
 }

@@ -112,7 +112,7 @@ struct PhoneNumberPage: View {
                 
                 
                 NavigationLink(
-                    destination: PhoneCodeVerificationPage(userInfo: userInfo),
+                    destination: PhoneCodeVerificationPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
                     label: {
                         Image(systemName: "chevron.right")
                             .frame(width: self.userInfo.defaultWidthSize / 7,  height: self.userInfo.defaultHeightSize)

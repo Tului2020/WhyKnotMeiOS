@@ -38,7 +38,7 @@ struct PhoneCodeVerificationPage: View {
                         .font(.system(size: 24, weight: .bold))
                 }
                 
-                Text("Enter the code we've sent by text to +\(self.userInfo.countryCode + self.userInfo.phoneNumber).")
+                Text("Enter the code we've sent by text to +\(self.userInfo.countryCode + self.userInfo.phoneNumber.prefix(6))****.")
                     .padding(.top, 50)
                 
                 Button(action: {

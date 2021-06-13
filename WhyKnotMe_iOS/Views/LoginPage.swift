@@ -14,6 +14,9 @@ struct LoginPage: View {
     
     
     var body: some View {
+        NavigationView {
+            
+        
         ZStack {
             Image("background")
                 .resizable()
@@ -128,10 +131,11 @@ struct LoginPage: View {
                 Spacer();
                 
             }
+            .frame(width: userInfo.defaultWidthSize, height: userInfo.defaultContentHeight)
             
             
             
-        }
+        }}
     }
 }
 
@@ -143,8 +147,6 @@ struct LoginPage: View {
 struct LoginPage_Previews: PreviewProvider {
     static var previews: some View {
         LoginPage(userInfo: UserInfo())
-            .previewLayout(.device)
-            .previewDevice("iPhone 11 Pro")
     }
 }
 

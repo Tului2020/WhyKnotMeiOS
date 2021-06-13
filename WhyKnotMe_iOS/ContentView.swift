@@ -11,14 +11,7 @@ struct ContentView: View {
     @ObservedObject var userInfo = UserInfo();
     
     var body: some View {
-        
-        NavigationView {
-            LoginPage(userInfo: userInfo)
-                .offset(y:-60)
-        }
-        
-        
-        
+        LoginPage(userInfo: userInfo)
         
     }
 }
