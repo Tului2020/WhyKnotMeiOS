@@ -9,11 +9,13 @@ import SwiftUI
 
 struct PhoneCodeVerificationPage: View {
     
+    @ObservedObject var userInfo: UserInfo;
+    
     private func getImage(number: Int) -> String {
         return String(number) + ".square"
     }
     
-    @ObservedObject var userInfo = userInformation();
+    //@ObservedObject var userInfo = userInformation();
     
     
     let widthSize:CGFloat = 330;
@@ -57,6 +59,6 @@ struct PhoneCodeVerificationPage: View {
 
 struct PhoneCodeVerificationPage_Previews: PreviewProvider {
     static var previews: some View {
-        PhoneCodeVerificationPage()
+        PhoneCodeVerificationPage(userInfo: UserInfo())
     }
 }

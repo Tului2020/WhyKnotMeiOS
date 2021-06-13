@@ -10,9 +10,8 @@ import AuthenticationServices
 
 struct LoginPage: View {
     
-    let widthSize:CGFloat = 330;
-    let heightSize:CGFloat = 43;
-    let fontSize:CGFloat = 16;
+    @ObservedObject var userInfo: UserInfo;
+    
     
     var body: some View {
         ZStack {
@@ -38,62 +37,57 @@ struct LoginPage: View {
                     
                     
                     // Continue with Facebook Button
-                    NavigationLink(
-                        destination: FacebookPage(),
-                        label: {
-                            HStack {
-                                Image("FacebookLogo")
-                                Text("Continue with Facebook")
-                                    .bold()
-                                    .font(.system(size: fontSize))
-                            }
-                            .frame(width: widthSize, height: heightSize)
-                            .background(Color.white)
-                            .foregroundColor(.black)
-                            .cornerRadius(30)
-
-                        })
-                        .navigationBarBackButtonHidden(true)
-//                        .navigationBarItems(leading: View)
-                            
-//                        .navigationBarHidden(true)
                     
+                    Group {
+                        NavigationLink(
+                            destination: FacebookPage(),
+                            label: {
+                                HStack {
+                                    Image("FacebookLogo")
+                                    Text("Continue with Facebook")
+                                        .bold()
+                                        .font(.system(size: userInfo.defaultFontSize))
+                                }
+                                
+                                
+                            })
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        // Continue with Apple Button
+                        NavigationLink(
+                            destination: ApplePage(),
+                            label: {
+                                
+                                HStack {
+                                    Image(systemName: "applelogo")
+                                    
+                                    Text("Continue with Apple")
+                                        .bold()
+                                        .foregroundColor(Color.primary)
+                                    
+                                }
+                            })
+                        
+                    }
+                    .frame(width: userInfo.defaultWidthSize, height: 45)
+                    .background(Color.white)
+                    .foregroundColor(.black)
+                    .cornerRadius(30)
                     
-                    
-                    
-                    
-                    
-                    // Continue with Apple Button
-                    NavigationLink(
-                        destination: ApplePage(),
-                        label: {
-                            
-                            HStack {
-                                Image(systemName: "applelogo")
-                            
-                                Text("Continue with Apple")
-                                    .bold()
-
-                            }
-                            .frame(width: widthSize, height: heightSize, alignment: .center)
-                            .background(Color.white)
-                            .foregroundColor(.black)
-                            .cornerRadius(30)
-                            .font(.system(size: fontSize))
-                        })
                     
                     
                     // User Cell Phone Number
                     NavigationLink(
-                        destination: PhoneNumberPage().navigationBarBackButtonHidden(true),
+                        destination: PhoneNumberPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
                         label: {
                             Text("Use Cellphone Number")
                                 .bold()
-                                .frame(width: widthSize, height: heightSize)
-//                                .background(Color.white)
                                 .foregroundColor(.white)
-//                                .cornerRadius(30)
-                                .font(.system(size: fontSize))
                         })
                     
                 }
@@ -148,7 +142,7 @@ struct LoginPage: View {
 
 struct LoginPage_Previews: PreviewProvider {
     static var previews: some View {
-        LoginPage()
+        LoginPage(userInfo: UserInfo())
             .previewLayout(.device)
             .previewDevice("iPhone 11 Pro")
     }

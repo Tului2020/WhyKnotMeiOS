@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var userInfo = UserInfo();
     
     var body: some View {
+        
         NavigationView {
-            ZStack {
-                LoginPage()
-                    .offset(y:-60)
-            }
+            LoginPage(userInfo: userInfo)
+                .offset(y:-60)
         }
+        
+        
+        
         
     }
 }

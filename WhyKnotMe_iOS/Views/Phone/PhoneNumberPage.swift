@@ -10,19 +10,15 @@ import iPhoneNumberField
 //import AuthenticationServices
 
 struct PhoneNumberPage: View {
+
     
-//    let widthSize:CGFloat = 319;
-//    let heightSize:CGFloat = 43;
-    let fontSize:CGFloat = 14;
-    
-    @ObservedObject var userInfo = userInformation();
+    @ObservedObject var userInfo: UserInfo;
     @State var phoneEditing = false;
-    @State var isChecked = true;
-    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     
     func toggle() {
-        isChecked = !isChecked
+        self.userInfo.termsAgreed = !self.userInfo.termsAgreed
     }
     
     var body: some View {
@@ -42,44 +38,57 @@ struct PhoneNumberPage: View {
                     // First part
                     
                     HStack {
-                        Image(systemName: "chevron.left")
+
+                        
+                        Button(action: {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }, label: {
+                            Image(systemName: "chevron.left")
+                                .foregroundColor(.primary)
+                        }).padding(.all, 4)
+                        
                         
                         Text("What's your phone number?")
                             .frame(alignment: .topLeading)
                             .font(.system(size: 24, weight: .semibold))
                     }
                     
-                    
 
-                    
-                    
-                    
-                        
-                    
-     
                     // Second part
                     Text("We take pride in our community by making sure everyone on WhyKnotMe is authentic.")
                         .font(.system(size: 15))
                         .frame(width: self.userInfo.defaultWidthSize)
                     
-//                    Text(appInfo.phoneNumber)
+                    
                     
                     // Input Area
-                    
                     HStack(spacing: 30) {
-                        TextField("Placeholder", text: self.$userInfo.countryCode)
-                            .background(Color.white)
-                            .frame(width: self.userInfo.defaultWidthSize / 5)
-                            .multilineTextAlignment(.center)
-                            .font(.system(size: self.userInfo.defaultInputFontSize))
-                            .cornerRadius(10.0)
+                        
+                        HStack {
+                            TextField("Placeholder", text: self.$userInfo.countryCode)
+                                .font(.system(size: self.userInfo.defaultFontSize))
+                                .padding()
+                        }
+                        .frame(width: self.userInfo.defaultWidthSize / 5, height: self.userInfo.defaultHeightSize)
+                        .background(Color.white)
+                        .cornerRadius(4.0)
+                        
+
                         
                         
                         
-                        TextField("Phone number", text: self.$userInfo.phoneNumber)
-                            .background(Color.white)
-                            .font(.system(size: self.userInfo.defaultInputFontSize))
-                            .cornerRadius(10.0)
+                        
+                        
+                        HStack {
+                            TextField("Phone number", text: self.$userInfo.phoneNumber)
+                                .font(.system(size: self.userInfo.defaultFontSize))
+                                .padding()
+                        }
+                        .frame(width: self.userInfo.defaultWidthSize / 1.4, height: self.userInfo.defaultHeightSize)
+                        .background(Color.white)
+                        .cornerRadius(4.0)
+                        
+                        
                         
                         
                         
@@ -90,7 +99,7 @@ struct PhoneNumberPage: View {
                     // Check box (I agree..)
                     HStack {
                         Button(action: toggle) {
-                            Image(systemName: isChecked ? "checkmark.square.fill": "square.fill")
+                            Image(systemName: self.userInfo.termsAgreed ? "checkmark.square.fill": "square.fill")
                                 .foregroundColor(Color.white)
                         }
                         
@@ -102,15 +111,15 @@ struct PhoneNumberPage: View {
                 
                 
                 NavigationLink(
-                    destination: PhoneCodeVerificationPage(),
+                    destination: PhoneCodeVerificationPage(userInfo: userInfo),
                     label: {
                         Image(systemName: "chevron.right")
-                            .frame(width: self.userInfo.defaultWidthSize / 7,  height: self.userInfo.defaultHeightSize / 2)
+                            .frame(width: self.userInfo.defaultWidthSize / 7,  height: self.userInfo.defaultHeightSize)
                             .background(Color.black)
                             .foregroundColor(.white)
-                            .cornerRadius(self.userInfo.defaultWidthSize / 5)
+                            .cornerRadius(self.userInfo.defaultWidthSize / 4)
                     })
-                    .disabled(!isChecked || self.userInfo.phoneNumber.count != 10)
+                    .disabled(!self.userInfo.termsAgreed || self.userInfo.phoneNumber.count != 10)
                     .offset(x: 120)
                 
                 
@@ -136,7 +145,7 @@ struct PhoneNumberPage: View {
 struct PhoneNumberPage_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            PhoneNumberPage()
+            PhoneNumberPage(userInfo: UserInfo())
         }
     }
 }
