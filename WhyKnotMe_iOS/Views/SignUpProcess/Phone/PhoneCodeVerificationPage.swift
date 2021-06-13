@@ -10,11 +10,7 @@ import SwiftUI
 struct PhoneCodeVerificationPage: View {
     
     @ObservedObject var userInfo: UserInfo;
-    @State var verificationCode = [nil, nil, nil, nil];
-    @State var verificationCode1: String = "";
-    @State var verificationCode2: String = "";
-    @State var verificationCode3: String = "";
-    @State var verificationCode4: String = "";
+    @State var s: String = "";
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -50,20 +46,34 @@ struct PhoneCodeVerificationPage: View {
                 })
                 
                 
-                HStack {
-                    Group {
-                        TextField("x", text: self.$verificationCode1)
-                        TextField("x", text: self.$verificationCode2)
-                        TextField("x", text: self.$verificationCode3)
-                        TextField("x", text: self.$verificationCode4)
-                    }
-                    .multilineTextAlignment(.center)
-                    .frame(width: 55, height: 55, alignment: .center)
-                    .background(Color.white)
-                    .cornerRadius(15)
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                ZStack {
+                    HStack {
+                        Group {
+                            ForEach(0..<4) { num in
+                                if (s.count > num) {
+                                    Text(s.prefix(num + 1).suffix(1))
+                                } else {
+                                    Text("")
+                                }
+                                
+                            }
+                        }
+                        .multilineTextAlignment(.center)
+                        .frame(width: 55, height: 55, alignment: .center)
+                        .background(Color.white)
+                        .cornerRadius(15)
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        
+                    }.padding(.top, 50.0)
                     
-                }.padding(.top, 50.0)
+                    TextField("x", text: self.$s)
+                        .padding()
+                        .font(.system(size: 50))
+                        .frame(width: self.userInfo.defaultWidthSize, height: self.userInfo.defaultHeightSize * 2, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .hidden()
+                        
+                }
+                
                 
                 
                 
