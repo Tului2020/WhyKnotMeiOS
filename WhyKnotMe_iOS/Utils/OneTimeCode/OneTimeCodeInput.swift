@@ -15,6 +15,7 @@ struct OneTimeCodeInput: UIViewRepresentable {
     let index: Int;
     @Binding var codeDict: [Int: String];
     @Binding var firstResponderIndex: Int;
+    @Binding var alreadySent: Bool;
     var onCommit: (() -> Void)?
     
     
@@ -24,11 +25,13 @@ struct OneTimeCodeInput: UIViewRepresentable {
         let index: Int;
         @Binding var codeDict: [Int: String];
         @Binding var firstResponderIndex: Int;
+        @Binding var alreadySent: Bool
         
-        init(index: Int, codeDict: Binding<[Int: String]>, firstResponderIndex: Binding<Int>) {
+        init(index: Int, codeDict: Binding<[Int: String]>, firstResponderIndex: Binding<Int>, alreadySent: Binding<Bool>) {
             self.index = index;
             self._codeDict = codeDict;
             self._firstResponderIndex = firstResponderIndex;
+            self._alreadySent = alreadySent;
         }
         
         
@@ -47,9 +50,11 @@ struct OneTimeCodeInput: UIViewRepresentable {
             
             // 2. deleting
             if string.isBackSpace {
-                codeDict.updateValue("", forKey: index)
-                firstResponderIndex = max(0, index - 1)
-                return false
+                codeDict.updateValue("", forKey: index);
+                firstResponderIndex = max(0, index - 1);
+                alreadySent = false;
+                
+                return false;
             }
             
             
@@ -95,7 +100,7 @@ struct OneTimeCodeInput: UIViewRepresentable {
     
     
     func makeCoordinator() -> Coordinator {
-        .init(index: index, codeDict: $codeDict, firstResponderIndex: $firstResponderIndex)
+        .init(index: index, codeDict: $codeDict, firstResponderIndex: $firstResponderIndex, alreadySent: $alreadySent)
     }
     
     

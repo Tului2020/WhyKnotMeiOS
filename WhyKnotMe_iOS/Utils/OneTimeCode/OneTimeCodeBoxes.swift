@@ -12,6 +12,7 @@ struct OneTimeCodeBoxes: View {
     
     @Binding var codeDict: [Int: String];
     @Binding var firstResponderIndex: Int;
+    @Binding var alreadySent: Bool;
     var onCommit: (() -> Void)
     
     var body: some View {
@@ -20,7 +21,7 @@ struct OneTimeCodeBoxes: View {
                 OneTimeCodeInput(
                     index: i,
                     codeDict: $codeDict,
-                    firstResponderIndex: $firstResponderIndex,
+                    firstResponderIndex: $firstResponderIndex, alreadySent: $alreadySent,
                     onCommit: {onCommit()})
                     .background(Color.white)
                     .frame(width: 70, height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -33,7 +34,7 @@ struct OneTimeCodeBoxes: View {
 
 struct OneTimeCodeBoxes_Previews: PreviewProvider {
     static var previews: some View {
-        OneTimeCodeBoxes(codeDict: .constant([0:"", 1:"", 2:"", 3:""]), firstResponderIndex: .constant(0), onCommit: {print("DOOONNNEEEEE")})
+        OneTimeCodeBoxes(codeDict: .constant([0:"", 1:"", 2:"", 3:""]), firstResponderIndex: .constant(0), alreadySent: .constant(false), onCommit: {print("DOOONNNEEEEE")})
             .padding()
             .previewLayout(.sizeThatFits)
     }

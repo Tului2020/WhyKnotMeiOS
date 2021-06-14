@@ -11,15 +11,10 @@ struct PhoneCodeVerificationPage: View {
     
     @ObservedObject var userInfo: UserInfo;
     @State var s: String = "";
+    @State var phoneVerified = false;
+    @State var alreadySent = false;
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    
-    
-    func verifyCode() -> Bool {
-        return true
-    }
-    
     
     
     var body: some View {
@@ -37,7 +32,7 @@ struct PhoneCodeVerificationPage: View {
                         Image(systemName: "chevron.left")
                             .foregroundColor(.primary)
                     }).padding(.all, 4)
-    
+                    
                     Text("Verify your phone number")
                         .font(.system(size: 24, weight: .bold))
                 }
@@ -54,7 +49,16 @@ struct PhoneCodeVerificationPage: View {
                 })
                 
                 
-                OneTimeCodeBoxes(codeDict: $userInfo.codeDict, firstResponderIndex: $userInfo.firstResponderIndex, onCommit: {verifyCode()})
+                OneTimeCodeBoxes(codeDict: $userInfo.codeDict, firstResponderIndex: $userInfo.firstResponderIndex, alreadySent: $alreadySent, onCommit: {
+                    DispatchQueue.main.async {
+                        if !alreadySent {
+                            phoneVerified = true;
+                            alreadySent = true;
+                        }
+                        
+                        
+                    }
+                })
                 
                 
                 
@@ -70,6 +74,14 @@ struct PhoneCodeVerificationPage: View {
                 }
                 .padding(.top, 150.0)
                 .font(.system(size: 11))
+                
+                
+                NavigationLink(
+                    destination: NamePage(userInfo: userInfo, alreadySent: $alreadySent).navigationBarBackButtonHidden(true),
+                    isActive: $phoneVerified) {
+                    EmptyView()
+                }.hidden()
+                
                 
                 
             }

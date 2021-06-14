@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct RelationshipPage: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var userInfo: UserInfo;
     var pageNum: Int = 3;
     
     var body: some View {
         ZStack {
             Image("background")
+                .resizable()
+                .frame(width: 600, height: 1000, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
             VStack {
                 HStack(spacing: 5) {
