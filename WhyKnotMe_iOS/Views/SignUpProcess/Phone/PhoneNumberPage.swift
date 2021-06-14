@@ -68,6 +68,7 @@ struct PhoneNumberPage: View {
                         HStack {
                             TextField("Placeholder", text: self.$userInfo.countryCode)
                                 .font(.system(size: self.userInfo.defaultFontSize))
+                                .foregroundColor(Color.black)
                                 .padding()
                         }
                         .frame(width: self.userInfo.defaultWidthSize / 5, height: self.userInfo.defaultHeightSize)
@@ -83,6 +84,7 @@ struct PhoneNumberPage: View {
                         HStack {
                             TextField("Phone number", text: self.$userInfo.phoneNumber)
                                 .font(.system(size: self.userInfo.defaultFontSize))
+                                .foregroundColor(Color.black)
                                 .padding()
                         }
                         .frame(width: self.userInfo.defaultWidthSize / 1.4, height: self.userInfo.defaultHeightSize)
