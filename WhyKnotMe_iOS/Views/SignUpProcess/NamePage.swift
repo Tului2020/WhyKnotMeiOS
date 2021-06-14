@@ -36,12 +36,59 @@ struct NamePage: View {
                 }
                 
                 
-                Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.primary)
-                }).padding(.all, 4)
+                HStack {
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.primary)
+                    }).padding(.all, 4)
+                    
+                    Spacer()
+                    Text("What's your first name?")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                    
+                    Spacer()
+                }
+                .padding(.top, 60)
+                
+                
+                
+                Text("You won't be able to change this later")
+                    .font(.system(size: 12, weight: .semibold))
+                    .padding(.top, 4)
+                
+                
+                
+                
+                TextField("Add your first name", text: $userInfo.firstName)
+                    .font(.system(size: 25))
+                    .frame(width: userInfo.defaultWidthSize, height: userInfo.defaultHeightSize + 10)
+                    .background(Color.white)
+                    .cornerRadius(8)
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 30)
+                
+                
+                Text("Your name will be shown on your profile")
+                    .frame(alignment: .leading)
+                    .font(.system(size: 12, weight: .semibold))
+                    .padding(.top, 20)
+                
+                NavigationLink(
+                    destination: BirthdayPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
+                    label: {
+                        Image(systemName: "chevron.right")
+                            .frame(width: self.userInfo.defaultWidthSize / 7,  height: self.userInfo.defaultHeightSize)
+                            .background(Color.black)
+                            .foregroundColor(.white)
+                            .cornerRadius(self.userInfo.defaultWidthSize / 4)
+                    })
+                    .disabled(userInfo.firstName.count == 0)
+                    .offset(x: 120, y: 100)
+                    
+                
                 
                 
             }
