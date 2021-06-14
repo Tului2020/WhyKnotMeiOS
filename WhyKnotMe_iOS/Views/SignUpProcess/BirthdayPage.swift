@@ -100,7 +100,7 @@ struct BirthdayPage: View {
                 
                 
                 NavigationLink(
-                    destination: BirthdayPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
+                    destination: RelationshipPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
                     label: {
                         Image(systemName: "chevron.right")
                             .frame(width: self.userInfo.defaultWidthSize / 7,  height: self.userInfo.defaultHeightSize)
@@ -108,7 +108,7 @@ struct BirthdayPage: View {
                             .foregroundColor(.white)
                             .cornerRadius(self.userInfo.defaultWidthSize / 4)
                     })
-                    .disabled(userInfo.firstName.count == 0)
+                    .disabled(!(userInfo.birthDay.count > 0 && userInfo.birthMonth.count > 0 && userInfo.birthYear.count == 4))
                     .offset(x: 120, y: 100)
                     
                 
