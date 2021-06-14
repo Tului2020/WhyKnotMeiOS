@@ -70,7 +70,7 @@ struct PhoneCodeVerificationPage: View {
                         .padding()
                         .font(.system(size: 50))
                         .frame(width: self.userInfo.defaultWidthSize, height: self.userInfo.defaultHeightSize * 2, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .hidden()
+                      
                         
                 }
                 
