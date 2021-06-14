@@ -22,6 +22,9 @@ class UserInfo: ObservableObject {
     @Published var birthYear: Int = 0;
     @Published var gender: String = "";
     @Published var username: String = "";
+    @Published var codeDict: [Int: String] = Dictionary<Int, String>(uniqueKeysWithValues: (0..<4).map{($0, "")});
+    @Published var firstResponderIndex = 0;
+    
     
     var defaultWidthSize: CGFloat = 319;
     var defaultHeightSize:CGFloat = 45;
@@ -31,5 +34,6 @@ class UserInfo: ObservableObject {
     var defaultContentHeight:CGFloat = 600;
     
     var numPages: Int = 4;
+    
     
 }

@@ -11,6 +11,9 @@
 		ED323102266084A600FB614A /* FacebookPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED323101266084A600FB614A /* FacebookPage.swift */; };
 		ED323104266084B800FB614A /* PhoneNumberPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED323103266084B800FB614A /* PhoneNumberPage.swift */; };
 		ED323108266084D400FB614A /* ApplePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED323107266084D400FB614A /* ApplePage.swift */; };
+		ED69C138267700C400C3D52F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69C137267700C400C3D52F /* String.swift */; };
+		ED69C13A267700DF00C3D52F /* OneTimeCodeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69C139267700DF00C3D52F /* OneTimeCodeInput.swift */; };
+		ED69C13C2677012900C3D52F /* OneTimeCodeBoxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69C13B2677012900C3D52F /* OneTimeCodeBoxes.swift */; };
 		ED7153612662DE870096806B /* iPhoneNumberField in Frameworks */ = {isa = PBXBuildFile; productRef = ED7153602662DE870096806B /* iPhoneNumberField */; };
 		ED959C6D2676927B002AC0B7 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED959C6C2676927B002AC0B7 /* UserInfo.swift */; };
 		EDE09F192667028100CE4C19 /* PhoneCodeVerificationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE09F182667028100CE4C19 /* PhoneCodeVerificationPage.swift */; };
@@ -29,6 +32,9 @@
 		ED323101266084A600FB614A /* FacebookPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookPage.swift; sourceTree = "<group>"; };
 		ED323103266084B800FB614A /* PhoneNumberPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberPage.swift; sourceTree = "<group>"; };
 		ED323107266084D400FB614A /* ApplePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplePage.swift; sourceTree = "<group>"; };
+		ED69C137267700C400C3D52F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		ED69C139267700DF00C3D52F /* OneTimeCodeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeCodeInput.swift; sourceTree = "<group>"; };
+		ED69C13B2677012900C3D52F /* OneTimeCodeBoxes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeCodeBoxes.swift; sourceTree = "<group>"; };
 		ED959C6C2676927B002AC0B7 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		EDE09F182667028100CE4C19 /* PhoneCodeVerificationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCodeVerificationPage.swift; sourceTree = "<group>"; };
 		EDECF138266054ED00CF5AFD /* WhyKnotMe_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhyKnotMe_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +109,25 @@
 			path = Phone;
 			sourceTree = "<group>";
 		};
+		ED69C1352677009400C3D52F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				ED69C136267700B800C3D52F /* OneTimeCode */,
+				ED69C137267700C400C3D52F /* String.swift */,
+				ED959C6C2676927B002AC0B7 /* UserInfo.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		ED69C136267700B800C3D52F /* OneTimeCode */ = {
+			isa = PBXGroup;
+			children = (
+				ED69C139267700DF00C3D52F /* OneTimeCodeInput.swift */,
+				ED69C13B2677012900C3D52F /* OneTimeCodeBoxes.swift */,
+			);
+			path = OneTimeCode;
+			sourceTree = "<group>";
+		};
 		EDECF12F266054ED00CF5AFD = {
 			isa = PBXGroup;
 			children = (
@@ -122,7 +147,7 @@
 		EDECF13A266054ED00CF5AFD /* WhyKnotMe_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				ED959C6C2676927B002AC0B7 /* UserInfo.swift */,
+				ED69C1352677009400C3D52F /* Utils */,
 				ED3230F62660707800FB614A /* ViewModels */,
 				ED3230F52660706E00FB614A /* Models */,
 				ED3230F42660706600FB614A /* Views */,
@@ -233,14 +258,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDE09F192667028100CE4C19 /* PhoneCodeVerificationPage.swift in Sources */,
+				ED69C138267700C400C3D52F /* String.swift in Sources */,
 				ED323102266084A600FB614A /* FacebookPage.swift in Sources */,
 				ED323104266084B800FB614A /* PhoneNumberPage.swift in Sources */,
 				EDF710A52676B10700C22902 /* NamePage.swift in Sources */,
 				EDF710AB2676B44E00C22902 /* InterestedInPage.swift in Sources */,
+				ED69C13C2677012900C3D52F /* OneTimeCodeBoxes.swift in Sources */,
 				EDECF13E266054ED00CF5AFD /* ContentView.swift in Sources */,
 				EDF710A92676B3EE00C22902 /* RelationshipPage.swift in Sources */,
 				ED959C6D2676927B002AC0B7 /* UserInfo.swift in Sources */,
 				ED323108266084D400FB614A /* ApplePage.swift in Sources */,
+				ED69C13A267700DF00C3D52F /* OneTimeCodeInput.swift in Sources */,
 				ED3230FC2660797300FB614A /* LoginPage.swift in Sources */,
 				EDECF13C266054ED00CF5AFD /* WhyKnotMe_iOSApp.swift in Sources */,
 				EDF710A72676B3B400C22902 /* BirthdayPage.swift in Sources */,

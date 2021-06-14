@@ -14,6 +14,14 @@ struct PhoneCodeVerificationPage: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    
+    
+    func verifyCode() -> Bool {
+        return true
+    }
+    
+    
+    
     var body: some View {
         ZStack {
             Image("background")
@@ -46,33 +54,7 @@ struct PhoneCodeVerificationPage: View {
                 })
                 
                 
-                ZStack {
-                    HStack {
-                        Group {
-                            ForEach(0..<4) { num in
-                                if (s.count > num) {
-                                    Text(s.prefix(num + 1).suffix(1))
-                                } else {
-                                    Text("")
-                                }
-                                
-                            }
-                        }
-                        .multilineTextAlignment(.center)
-                        .frame(width: 55, height: 55, alignment: .center)
-                        .background(Color.white)
-                        .cornerRadius(15)
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        
-                    }.padding(.top, 50.0)
-                    
-                    TextField("x", text: self.$s)
-                        .padding()
-                        .font(.system(size: 50))
-                        .frame(width: self.userInfo.defaultWidthSize, height: self.userInfo.defaultHeightSize * 2, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                      
-                        
-                }
+                OneTimeCodeBoxes(codeDict: $userInfo.codeDict, firstResponderIndex: $userInfo.firstResponderIndex, onCommit: {verifyCode()})
                 
                 
                 
@@ -80,6 +62,7 @@ struct PhoneCodeVerificationPage: View {
                 
                 HStack {
                     Text("The text should arrive in 30s")
+                        .fontWeight(.semibold)
                     Spacer()
                     Text("Didn't receive a text")
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
