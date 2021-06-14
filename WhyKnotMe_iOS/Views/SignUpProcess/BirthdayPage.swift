@@ -52,20 +52,41 @@ struct BirthdayPage: View {
                 }
                 .padding(.top, 60)
                 
-//                Text("You won't be able to change this later")
-//                    .font(.system(size: 12, weight: .semibold))
-//                    .padding(.top, 4)
-                
-                
-                
-                
-//                TextField("Add your first name", text: $userInfo.firstName)
-//                    .font(.system(size: 25))
-//                    .frame(width: userInfo.defaultWidthSize, height: userInfo.defaultHeightSize + 10)
-//                    .background(Color.white)
-//                    .cornerRadius(8)
-//                    .multilineTextAlignment(.center)
-//                    .padding(.top, 30)
+                HStack {
+                    VStack {
+                        Text("Month")
+                            .font(.system(size: 13))
+                        TextField("MM", text: $userInfo.birthMonth)
+                            .frame(width: 50, height: 50)
+                            .multilineTextAlignment(.center)
+                            .background(Color.white)
+                            .cornerRadius(6)
+                    }
+                    .padding(10)
+                    
+                    
+                    VStack {
+                        Text("Day")
+                            .font(.system(size: 13))
+                        TextField("DD", text: $userInfo.birthDay)
+                            .frame(width: 50, height: 50)
+                            .multilineTextAlignment(.center)
+                            .background(Color.white)
+                            .cornerRadius(6)
+                        
+                    }.padding(10)
+                    
+                    VStack {
+                        Text("Year")
+                            .font(.system(size: 13))
+                        TextField("YYYY", text: $userInfo.birthYear)
+                            .frame(width: 80, height: 50)
+                            .multilineTextAlignment(.center)
+                            .background(Color.white)
+                            .cornerRadius(6)
+                        
+                    }.padding(10)
+                }
                 
                 
                 Text("No worries, your birthday will be shown. Just your age")
