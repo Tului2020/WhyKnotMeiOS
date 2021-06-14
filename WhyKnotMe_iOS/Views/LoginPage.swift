@@ -71,7 +71,7 @@ struct LoginPage: View {
                                     
                                     Text("Continue with Apple")
                                         .bold()
-                                        .foregroundColor(Color.primary)
+                                        .foregroundColor(Color.black)
                                     
                                 }
                             })
