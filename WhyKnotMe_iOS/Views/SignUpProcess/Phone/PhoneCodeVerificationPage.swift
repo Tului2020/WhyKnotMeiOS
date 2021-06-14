@@ -10,13 +10,12 @@ import SwiftUI
 struct PhoneCodeVerificationPage: View {
     
     @ObservedObject var userInfo: UserInfo;
-    @State var verificationCode = [nil, nil, nil, nil];
-    @State var verificationCode1: String = "";
-    @State var verificationCode2: String = "";
-    @State var verificationCode3: String = "";
-    @State var verificationCode4: String = "";
+    @State var s: String = "";
+    @State var phoneVerified = false;
+    @State var alreadySent = false;
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     
     var body: some View {
         ZStack {
@@ -33,7 +32,7 @@ struct PhoneCodeVerificationPage: View {
                         Image(systemName: "chevron.left")
                             .foregroundColor(.primary)
                     }).padding(.all, 4)
-    
+                    
                     Text("Verify your phone number")
                         .font(.system(size: 24, weight: .bold))
                 }
@@ -50,26 +49,24 @@ struct PhoneCodeVerificationPage: View {
                 })
                 
                 
-                HStack {
-                    Group {
-                        TextField("x", text: self.$verificationCode1)
-                        TextField("x", text: self.$verificationCode2)
-                        TextField("x", text: self.$verificationCode3)
-                        TextField("x", text: self.$verificationCode4)
+                OneTimeCodeBoxes(codeDict: $userInfo.codeDict, firstResponderIndex: $userInfo.firstResponderIndex, alreadySent: $alreadySent, onCommit: {
+                    DispatchQueue.main.async {
+                        if !alreadySent {
+                            phoneVerified = true;
+                            alreadySent = true;
+                        }
+                        
+                        
                     }
-                    .multilineTextAlignment(.center)
-                    .frame(width: 55, height: 55, alignment: .center)
-                    .background(Color.white)
-                    .cornerRadius(15)
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    
-                }.padding(.top, 50.0)
+                })
+                
                 
                 
                 
                 
                 HStack {
                     Text("The text should arrive in 30s")
+                        .fontWeight(.semibold)
                     Spacer()
                     Text("Didn't receive a text")
                         .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
@@ -77,6 +74,14 @@ struct PhoneCodeVerificationPage: View {
                 }
                 .padding(.top, 150.0)
                 .font(.system(size: 11))
+                
+                
+                NavigationLink(
+                    destination: NamePage(userInfo: userInfo, alreadySent: $alreadySent).navigationBarBackButtonHidden(true),
+                    isActive: $phoneVerified) {
+                    EmptyView()
+                }.hidden()
+                
                 
                 
             }
