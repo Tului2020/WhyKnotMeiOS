@@ -16,6 +16,7 @@
 		ED69C13C2677012900C3D52F /* OneTimeCodeBoxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69C13B2677012900C3D52F /* OneTimeCodeBoxes.swift */; };
 		ED7153612662DE870096806B /* iPhoneNumberField in Frameworks */ = {isa = PBXBuildFile; productRef = ED7153602662DE870096806B /* iPhoneNumberField */; };
 		ED959C6D2676927B002AC0B7 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED959C6C2676927B002AC0B7 /* UserInfo.swift */; };
+		EDB008872677E4D30073E668 /* RadioButtonField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB008862677E4D30073E668 /* RadioButtonField.swift */; };
 		EDE09F192667028100CE4C19 /* PhoneCodeVerificationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE09F182667028100CE4C19 /* PhoneCodeVerificationPage.swift */; };
 		EDECF13C266054ED00CF5AFD /* WhyKnotMe_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDECF13B266054ED00CF5AFD /* WhyKnotMe_iOSApp.swift */; };
 		EDECF13E266054ED00CF5AFD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDECF13D266054ED00CF5AFD /* ContentView.swift */; };
@@ -36,6 +37,7 @@
 		ED69C139267700DF00C3D52F /* OneTimeCodeInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeCodeInput.swift; sourceTree = "<group>"; };
 		ED69C13B2677012900C3D52F /* OneTimeCodeBoxes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeCodeBoxes.swift; sourceTree = "<group>"; };
 		ED959C6C2676927B002AC0B7 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		EDB008862677E4D30073E668 /* RadioButtonField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonField.swift; sourceTree = "<group>"; };
 		EDE09F182667028100CE4C19 /* PhoneCodeVerificationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCodeVerificationPage.swift; sourceTree = "<group>"; };
 		EDECF138266054ED00CF5AFD /* WhyKnotMe_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhyKnotMe_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDECF13B266054ED00CF5AFD /* WhyKnotMe_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhyKnotMe_iOSApp.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		ED69C1352677009400C3D52F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EDB008852677E4C70073E668 /* RadioButton */,
 				ED69C136267700B800C3D52F /* OneTimeCode */,
 				ED69C137267700C400C3D52F /* String.swift */,
 				ED959C6C2676927B002AC0B7 /* UserInfo.swift */,
@@ -126,6 +129,14 @@
 				ED69C13B2677012900C3D52F /* OneTimeCodeBoxes.swift */,
 			);
 			path = OneTimeCode;
+			sourceTree = "<group>";
+		};
+		EDB008852677E4C70073E668 /* RadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				EDB008862677E4D30073E668 /* RadioButtonField.swift */,
+			);
+			path = RadioButton;
 			sourceTree = "<group>";
 		};
 		EDECF12F266054ED00CF5AFD = {
@@ -264,6 +275,7 @@
 				EDF710A52676B10700C22902 /* NamePage.swift in Sources */,
 				EDF710AB2676B44E00C22902 /* InterestedInPage.swift in Sources */,
 				ED69C13C2677012900C3D52F /* OneTimeCodeBoxes.swift in Sources */,
+				EDB008872677E4D30073E668 /* RadioButtonField.swift in Sources */,
 				EDECF13E266054ED00CF5AFD /* ContentView.swift in Sources */,
 				EDF710A92676B3EE00C22902 /* RelationshipPage.swift in Sources */,
 				ED959C6D2676927B002AC0B7 /* UserInfo.swift in Sources */,

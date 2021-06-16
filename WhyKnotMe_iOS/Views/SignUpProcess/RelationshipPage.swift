@@ -45,54 +45,17 @@ struct RelationshipPage: View {
                     Spacer()
                     
                     
-                    Text("When's your birthday?")
+                    Text("Select your profile Casual Dating or Long Term Relationship")
                         .font(.title2)
                         .fontWeight(.bold)
                     Spacer()
                 }
                 .padding(.top, 60)
                 
-                HStack {
-                    VStack {
-                        Text("Month")
-                            .font(.system(size: 13))
-                        TextField("MM", text: $userInfo.birthMonth)
-                            .frame(width: 50, height: 50)
-                            .multilineTextAlignment(.center)
-                            .background(Color.white)
-                            .cornerRadius(6)
-                    }
-                    .padding(10)
-                    
-                    
-                    VStack {
-                        Text("Day")
-                            .font(.system(size: 13))
-                        TextField("DD", text: $userInfo.birthDay)
-                            .frame(width: 50, height: 50)
-                            .multilineTextAlignment(.center)
-                            .background(Color.white)
-                            .cornerRadius(6)
-                        
-                    }.padding(10)
-                    
-                    VStack {
-                        Text("Year")
-                            .font(.system(size: 13))
-                        TextField("YYYY", text: $userInfo.birthYear)
-                            .frame(width: 80, height: 50)
-                            .multilineTextAlignment(.center)
-                            .background(Color.white)
-                            .cornerRadius(6)
-                        
-                    }.padding(10)
-                }
                 
                 
-                Text("No worries, your birthday will be shown. Just your age")
-                    .frame(alignment: .leading)
-                    .font(.system(size: 14))
-                    .padding(.top, 20)
+                
+                
                 
                 
                 
