@@ -7,75 +7,39 @@
 
 import SwiftUI
 
-//MARK:- Single Radio Button Field
-struct RadioButtonField: View {
-    var id: String;
-    var label: String;
-    var size: CGFloat;
-    var color: Color;
-    var textSize: CGFloat;
-    var isMarked: Binding<Bool>;
+struct RadioButtons: View {
     
-    init(<#parameters#>) {
-        <#statements#>
+    @State var chosen: Bool = true
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            ForEach(data, id: \.self) { i in
+                Button(action: {
+                    
+                    
+                    
+                }, label: {
+                    Text(i)
+                    Spacer()
+                    Circle().fill(Color.black.opacity(0.5)).frame(width: 20, height: 20)
+                })
+                
+            }
+        }.padding(.vertical)
+        .padding(.horizontal, 25)
+        
     }
-    
-    
     
     
 }
 
-struct RadioButtonField_Previews: PreviewProvider {
-    @State var isMarked: true
-    
+var data = ["Casual Dating", "Long Term Relationship", "None"]
+
+
+struct RadioButtons_Previews: PreviewProvider {
     static var previews: some View {
-        RadioButtonField(id: <#String#>, label: <#String#>, size: <#CGFloat#>, color: <#Color#>, textSize: <#CGFloat#>, isMarked: $isMarked
-        )
+        RadioButtons()
     }
 }
 
 
-//let id: String
-//let label: String
-//let size: CGFloat
-//let color: Color
-//let textSize: CGFloat
-//@Binding var isMarked:Bool
-//
-//
-//init(
-//    id: String,
-//    label:String,
-//    size: CGFloat = 20,
-//    color: Color = Color.blue,
-//    textSize: CGFloat = 14,
-//    isMarked: Bool = false
-//    ) {
-//    self.id = id
-//    self.label = label
-//    self.size = size
-//    self.color = color
-//    self.textSize = textSize
-//    self.isMarked = isMarked
-//}
-//
-//var body: some View {
-//    Button(action:{
-//        isMarked = !isMarked
-//    }) {
-//        HStack(alignment: .center, spacing: 10) {
-//            Image(systemName: self.isMarked ? "largecircle.fill.circle" : "circle")
-//                .renderingMode(.original)
-//                .resizable()
-//                .aspectRatio(contentMode: .fit)
-//                .frame(width: self.size, height: self.size)
-//
-//
-//            Text(label)
-//                .font(Font.system(size: textSize))
-//
-//            Spacer()
-//        }.foregroundColor(.blue)
-//    }
-//    .foregroundColor(Color.blue)
-//}

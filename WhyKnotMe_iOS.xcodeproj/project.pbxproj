@@ -72,20 +72,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		ED3230F52660706E00FB614A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		ED3230F62660707800FB614A /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		ED4B5EFA2665B16E00AD1A0C /* Facebook */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,8 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				ED69C1352677009400C3D52F /* Utils */,
-				ED3230F62660707800FB614A /* ViewModels */,
-				ED3230F52660706E00FB614A /* Models */,
 				ED3230F42660706600FB614A /* Views */,
 				EDECF13B266054ED00CF5AFD /* WhyKnotMe_iOSApp.swift */,
 				EDECF13D266054ED00CF5AFD /* ContentView.swift */,

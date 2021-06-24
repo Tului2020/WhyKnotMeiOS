@@ -10,137 +10,109 @@ import iPhoneNumberField
 //import AuthenticationServices
 
 struct PhoneNumberPage: View {
-
+    
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var userInfo: UserInfo;
-    @State var phoneEditing = false;
+    @State var agreeToTerms = false;
+    //    @State var phoneEditing = false;
     
-    
-    
-    func toggle() {
-        self.userInfo.termsAgreed = !self.userInfo.termsAgreed
-    }
     
     var body: some View {
         ZStack {
-            
-            // background
             Image("background")
                 .resizable()
-                .frame(width: 600.0, height: 1000.0)
+                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             
-            // content
-            VStack(spacing: 100) {
+            
+            VStack(spacing: 30) {
                 
                 
-                // upper part
-                VStack(spacing: 30) {
-                    // First part
+                HStack {
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        Image(systemName: "chevron.left")
+                    })
                     
-                    HStack {
-
-                        
-                        Button(action: {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }, label: {
-                            Image(systemName: "chevron.left")
-                                .foregroundColor(.primary)
-                        }).padding(.all, 4)
-                        
-                        
-                        Text("What's your phone number?")
-                            .frame(alignment: .topLeading)
-                            .font(.system(size: 24, weight: .semibold))
-                    }
-                    
-
-                    // Second part
-                        Text("We take pride in our community by making sure everyone on WhyKnotMe is authentic.")
-                            .font(.system(size: 15))
-                            .frame(width: self.userInfo.defaultWidthSize, height: self.userInfo.defaultHeightSize)
-                    
-                    
-                    
-                    // Input Area
-                    HStack(spacing: 30) {
-                        
-                        HStack {
-                            TextField("Placeholder", text: self.$userInfo.countryCode)
-                                .font(.system(size: self.userInfo.defaultFontSize))
-                                .foregroundColor(Color.black)
-                                .padding()
-                        }
+                    Text("What's your phone number?")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                }
+                .frame(maxWidth: .infinity)
+                
+                
+                Text("We take pride in our community by making sure everyone on Why Knot Me is authentic.")
+                
+                HStack {
+                    TextField("Placeholder", text: self.$userInfo.countryCode)
+                        .font(.system(size: self.userInfo.defaultFontSize))
+                        .foregroundColor(Color.black)
+                        .padding()
                         .frame(width: self.userInfo.defaultWidthSize / 5, height: self.userInfo.defaultHeightSize)
                         .background(Color.white)
                         .cornerRadius(4.0)
-                        
-
-                        
-                        
-                        
-                        
-                        
-                        HStack {
-                            TextField("Phone number", text: self.$userInfo.phoneNumber)
-                                .font(.system(size: self.userInfo.defaultFontSize))
-                                .foregroundColor(Color.black)
-                                .padding()
-                        }
+                    
+                    TextField("Phone number", text: self.$userInfo.phoneNumber)
+                        .font(.system(size: self.userInfo.defaultFontSize))
+                        .foregroundColor(Color.black)
+                        .padding()
                         .frame(width: self.userInfo.defaultWidthSize / 1.4, height: self.userInfo.defaultHeightSize)
                         .background(Color.white)
                         .cornerRadius(4.0)
-                        
-                        
-                        
-                        
-                        
-                    }.frame(width: self.userInfo.defaultWidthSize)
-                    
-                    
-                    
-                    // Check box (I agree..)
-                    HStack {
-                        Button(action: toggle) {
-                            Image(systemName: self.userInfo.termsAgreed ? "checkmark.square.fill": "square.fill")
-                                .foregroundColor(Color.white)
-                        }
-                        
-                        Text("I agree to the Terms and Conditions")
-                            .font(.system(size: self.userInfo.defaultFontSize))
-                    }
-                    .frame(width: self.userInfo.defaultWidthSize, alignment: .leading)
                 }
                 
                 
-                NavigationLink(
-                    destination: PhoneCodeVerificationPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
-                    label: {
-                        Image(systemName: "chevron.right")
-                            .frame(width: self.userInfo.defaultWidthSize / 7,  height: self.userInfo.defaultHeightSize)
-                            .background(Color.black)
-                            .foregroundColor(.white)
-                            .cornerRadius(self.userInfo.defaultWidthSize / 4)
+                
+                HStack {
+                    Button(action: {
+                        agreeToTerms.toggle()
+                    }, label: {
+                        Image(systemName: agreeToTerms ? "checkmark.square.fill": "square.fill")
+                            .foregroundColor(Color.white)
                     })
-                    .disabled(!self.userInfo.termsAgreed || self.userInfo.phoneNumber.count != 10)
-                    .offset(x: 120)
+                    
+                    Text("I agree to the terms and conditions")
+                }
                 
                 
+                HStack {
+                    Spacer()
+                    NavigationLink(
+                        destination: PhoneCodeVerificationPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
+                        label: {
+                            Image(systemName: "chevron.right")
+                                .frame(width: self.userInfo.defaultWidthSize / 7,  height: self.userInfo.defaultHeightSize)
+                                .background(Color.black)
+                                .foregroundColor(.white)
+                                .cornerRadius(self.userInfo.defaultWidthSize / 4)
+                        })
+                }
+                .disabled(!self.userInfo.termsAgreed || self.userInfo.phoneNumber.count != 10)
                 
-                // Disclosure
                 HStack(spacing: 8) {
                     // icon
-                    Image("SecurityCheck")
+//                    Image("SecurityCheck")
+                    Image(systemName: "lock.circle")
+                        .font(.system(size: 30))
                     
                     // Description
                     Text("We will never share your phone number with anyone and it will not be on your profile")
-                        .frame(width: self.userInfo.defaultWidthSize * CGFloat(0.85))
-                        .font(.system(size: 15))
+//                        .frame(width: self.userInfo.defaultWidthSize * CGFloat(0.85))
+//                        .font(.system(size: 15))
                     
                 }
+                
+                
             }
-            .frame(height: userInfo.defaultContentHeight, alignment: .topLeading)
+            .padding(.horizontal, 30)
+            .accentColor(.black)
+            
+            
+            
+            
         }
+        
     }
 }
 
@@ -153,3 +125,5 @@ struct PhoneNumberPage_Previews: PreviewProvider {
         }
     }
 }
+
+

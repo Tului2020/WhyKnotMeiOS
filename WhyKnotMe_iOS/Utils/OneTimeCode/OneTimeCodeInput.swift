@@ -40,13 +40,6 @@ struct OneTimeCodeInput: UIViewRepresentable {
                        shouldChangeCharactersIn range: NSRange,
                        replacementString string: String) -> Bool
         {
-            //let currentText = textField.text ?? ""
-            //guard let stringRange = Range(range, in: currentText) else { return false }
-            //let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-            
-
-            // possible cases:
-            
             
             // 2. deleting
             if string.isBackSpace {
