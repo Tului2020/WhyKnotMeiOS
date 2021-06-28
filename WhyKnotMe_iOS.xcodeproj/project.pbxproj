@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,7 +17,6 @@
 		ED69C138267700C400C3D52F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69C137267700C400C3D52F /* String.swift */; };
 		ED69C13A267700DF00C3D52F /* OneTimeCodeInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69C139267700DF00C3D52F /* OneTimeCodeInput.swift */; };
 		ED69C13C2677012900C3D52F /* OneTimeCodeBoxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED69C13B2677012900C3D52F /* OneTimeCodeBoxes.swift */; };
-		ED7153612662DE870096806B /* iPhoneNumberField in Frameworks */ = {isa = PBXBuildFile; productRef = ED7153602662DE870096806B /* iPhoneNumberField */; };
 		ED959C6D2676927B002AC0B7 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED959C6C2676927B002AC0B7 /* UserInfo.swift */; };
 		EDB008872677E4D30073E668 /* RadioButtonField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB008862677E4D30073E668 /* RadioButtonField.swift */; };
 		EDE09F192667028100CE4C19 /* PhoneCodeVerificationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE09F182667028100CE4C19 /* PhoneCodeVerificationPage.swift */; };
@@ -62,7 +61,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED7153612662DE870096806B /* iPhoneNumberField in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,7 +209,6 @@
 			);
 			name = WhyKnotMe_iOS;
 			packageProductDependencies = (
-				ED7153602662DE870096806B /* iPhoneNumberField */,
 			);
 			productName = WhyKnotMe_iOS;
 			productReference = EDECF138266054ED00CF5AFD /* WhyKnotMe_iOS.app */;
@@ -241,7 +238,6 @@
 			);
 			mainGroup = EDECF12F266054ED00CF5AFD;
 			packageReferences = (
-				ED71535F2662DE870096806B /* XCRemoteSwiftPackageReference "iPhoneNumberField" */,
 			);
 			productRefGroup = EDECF139266054ED00CF5AFD /* Products */;
 			projectDirPath = "";
@@ -428,7 +424,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Tului.WhyKnotMe-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -450,7 +446,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Tului.WhyKnotMe-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -476,25 +472,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		ED71535F2662DE870096806B /* XCRemoteSwiftPackageReference "iPhoneNumberField" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MojtabaHs/iPhoneNumberField.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.5.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		ED7153602662DE870096806B /* iPhoneNumberField */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = ED71535F2662DE870096806B /* XCRemoteSwiftPackageReference "iPhoneNumberField" */;
-			productName = iPhoneNumberField;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EDECF130266054ED00CF5AFD /* Project object */;
 }
