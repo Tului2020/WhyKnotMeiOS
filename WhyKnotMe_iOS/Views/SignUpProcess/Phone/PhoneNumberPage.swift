@@ -46,7 +46,7 @@ struct PhoneNumberPage: View {
                 Text("We take pride in our community by making sure everyone on Why Knot Me is authentic.")
                 
                 HStack {
-                    TextField("Placeholder", text: self.$userInfo.countryCode)
+                    TextField("+1", text: self.$userInfo.countryCode)
                         .font(.system(size: self.userInfo.defaultFontSize))
                         .foregroundColor(Color.black)
                         .padding()
@@ -82,10 +82,11 @@ struct PhoneNumberPage: View {
 
                 
                 
-                HStack(spacing: 8) {
+                HStack(spacing: 15) {
                     Image(systemName: "lock.circle")
                         .font(.system(size: 30))
                     Text("We will never share your phone number with anyone and it will not be on your profile")
+                        .font(.system(size: 17))
                     
                     NavigationLink(
                         destination: PhoneCodeVerificationPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
@@ -96,7 +97,6 @@ struct PhoneNumberPage: View {
                 
                 Spacer();
                 Spacer();
-
             }
             .padding(.horizontal, 30)
             .accentColor(.black)

@@ -69,8 +69,6 @@ struct PhoneCodeVerificationPage: View {
                             phoneVerified = true;
                             alreadySent = true;
                         }
-                        
-                        
                     }
                 })
                 Spacer()
