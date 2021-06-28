@@ -10,10 +10,8 @@ import SwiftUI
 struct PhoneCodeVerificationPage: View {
     
     @ObservedObject var userInfo: UserInfo;
-    //    @State var s: String = "";
-        @State var phoneVerified = false;
-        @State var alreadySent = false;
-    
+    @State var phoneVerified = false;
+    @State var alreadySent = false;
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     
