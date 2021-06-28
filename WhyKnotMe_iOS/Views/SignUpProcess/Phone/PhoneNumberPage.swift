@@ -15,7 +15,6 @@ struct PhoneNumberPage: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var userInfo: UserInfo;
     @State var agreeToTerms = false;
-    //    @State var phoneEditing = false;
     
     
     var body: some View {
@@ -27,17 +26,19 @@ struct PhoneNumberPage: View {
             
             VStack(spacing: 30) {
                 
+                Spacer();
                 
-                HStack {
+                HStack(spacing: 10) {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Image(systemName: "chevron.left")
+                            .font(.title3)
                     })
                     
                     Text("What's your phone number?")
                         .font(.title2)
-                        .fontWeight(.bold)
+                        .fontWeight(.semibold)
                 }
                 .frame(maxWidth: .infinity)
                 
@@ -75,35 +76,27 @@ struct PhoneNumberPage: View {
                     Text("I agree to the terms and conditions")
                 }
                 
+                Spacer();
+
+
+
                 
-                HStack {
-                    Spacer()
+                
+                HStack(spacing: 8) {
+                    Image(systemName: "lock.circle")
+                        .font(.system(size: 30))
+                    Text("We will never share your phone number with anyone and it will not be on your profile")
+                    
                     NavigationLink(
                         destination: PhoneCodeVerificationPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
                         label: {
-                            Image(systemName: "chevron.right")
-                                .frame(width: self.userInfo.defaultWidthSize / 7,  height: self.userInfo.defaultHeightSize)
-                                .background(Color.black)
-                                .foregroundColor(.white)
-                                .cornerRadius(self.userInfo.defaultWidthSize / 4)
+                            NextButton(circleColor: Color.white, arrowColor: Color.blue)
                         })
                 }
-                .disabled(!self.userInfo.termsAgreed || self.userInfo.phoneNumber.count != 10)
                 
-                HStack(spacing: 8) {
-                    // icon
-//                    Image("SecurityCheck")
-                    Image(systemName: "lock.circle")
-                        .font(.system(size: 30))
-                    
-                    // Description
-                    Text("We will never share your phone number with anyone and it will not be on your profile")
-//                        .frame(width: self.userInfo.defaultWidthSize * CGFloat(0.85))
-//                        .font(.system(size: 15))
-                    
-                }
-                
-                
+                Spacer();
+                Spacer();
+
             }
             .padding(.horizontal, 30)
             .accentColor(.black)

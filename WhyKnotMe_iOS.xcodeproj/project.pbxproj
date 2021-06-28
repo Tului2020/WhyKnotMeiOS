@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED0FAB112685450600743E81 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0FAB102685450600743E81 /* NextButton.swift */; };
 		ED3230FC2660797300FB614A /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3230FB2660797300FB614A /* LoginPage.swift */; };
 		ED323102266084A600FB614A /* FacebookPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED323101266084A600FB614A /* FacebookPage.swift */; };
 		ED323104266084B800FB614A /* PhoneNumberPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED323103266084B800FB614A /* PhoneNumberPage.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED0FAB102685450600743E81 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		ED3230FB2660797300FB614A /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		ED323101266084A600FB614A /* FacebookPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookPage.swift; sourceTree = "<group>"; };
 		ED323103266084B800FB614A /* PhoneNumberPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberPage.swift; sourceTree = "<group>"; };
@@ -63,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED0FAB0F268544FA00743E81 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				ED0FAB102685450600743E81 /* NextButton.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		ED3230F42660706600FB614A /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +154,7 @@
 		EDECF13A266054ED00CF5AFD /* WhyKnotMe_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				ED0FAB0F268544FA00743E81 /* Subviews */,
 				ED69C1352677009400C3D52F /* Utils */,
 				ED3230F42660706600FB614A /* Views */,
 				EDECF13B266054ED00CF5AFD /* WhyKnotMe_iOSApp.swift */,
@@ -257,6 +268,7 @@
 				ED323102266084A600FB614A /* FacebookPage.swift in Sources */,
 				ED323104266084B800FB614A /* PhoneNumberPage.swift in Sources */,
 				EDF710A52676B10700C22902 /* NamePage.swift in Sources */,
+				ED0FAB112685450600743E81 /* NextButton.swift in Sources */,
 				EDF710AB2676B44E00C22902 /* InterestedInPage.swift in Sources */,
 				ED69C13C2677012900C3D52F /* OneTimeCodeBoxes.swift in Sources */,
 				EDB008872677E4D30073E668 /* RadioButtonField.swift in Sources */,

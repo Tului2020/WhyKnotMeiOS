@@ -10,9 +10,9 @@ import SwiftUI
 struct PhoneCodeVerificationPage: View {
     
     @ObservedObject var userInfo: UserInfo;
-    @State var s: String = "";
-    @State var phoneVerified = false;
-    @State var alreadySent = false;
+    //    @State var s: String = "";
+        @State var phoneVerified = false;
+        @State var alreadySent = false;
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -21,32 +21,47 @@ struct PhoneCodeVerificationPage: View {
         ZStack {
             Image("background")
                 .resizable()
-                .frame(width: 600.0, height: 1000.0)
+                .scaledToFill()
+                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             
-            VStack() {
-                
-                HStack {
+            
+            VStack {
+                HStack(spacing: 10) {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Image(systemName: "chevron.left")
-                            .foregroundColor(.primary)
-                    }).padding(.all, 4)
+                            .font(.title3)
+                    })
                     
                     Text("Verify your phone number")
-                        .font(.system(size: 24, weight: .bold))
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                }
+                .frame(maxWidth: .infinity)
+                
+                
+                
+                VStack {
+                    Text("Enter the code we've sent by text to")
+                    
+                    HStack (spacing: 0) {
+                        Text("+\(self.userInfo.countryCode + self.userInfo.phoneNumber.prefix(6))****. ")
+                        
+                        Button(action: {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }, label: {
+                            Text("Change")
+                                .underline()
+                        })
+                        
+                        
+                    }
+                    
                 }
                 
-                Text("Enter the code we've sent by text to +\(self.userInfo.countryCode + self.userInfo.phoneNumber.prefix(6))****.")
-                    .padding(.top, 50)
                 
-                Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Text("Change")
-                        .foregroundColor(.primary)
-                        .underline()
-                })
+                
                 
                 
                 OneTimeCodeBoxes(codeDict: $userInfo.codeDict, firstResponderIndex: $userInfo.firstResponderIndex, alreadySent: $alreadySent, onCommit: {
@@ -61,35 +76,31 @@ struct PhoneCodeVerificationPage: View {
                 })
                 
                 
-                
-                
-                
                 HStack {
-                    Text("The text should arrive in 30s")
-                        .fontWeight(.semibold)
                     Spacer()
-                    Text("Didn't receive a text")
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                        .underline()
+                    
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }, label: {
+                        NextButton()
+                    })
                 }
-                .padding(.top, 150.0)
-                .font(.system(size: 11))
-                
-                
-                NavigationLink(
-                    destination: NamePage(userInfo: userInfo, alreadySent: $alreadySent).navigationBarBackButtonHidden(true),
-                    isActive: $phoneVerified) {
-                    EmptyView()
-                }.hidden()
-                
-                
+                .padding()
+ 
                 
             }
             
-            .frame(width: userInfo.defaultWidthSize, height: userInfo.defaultContentHeight, alignment: .topLeading)
+            .padding()
+            .accentColor(.black)
+            
+            
             
         }
+        
     }
+    
+    
+    
 }
 
 struct PhoneCodeVerificationPage_Previews: PreviewProvider {
@@ -98,3 +109,34 @@ struct PhoneCodeVerificationPage_Previews: PreviewProvider {
             .previewDevice("iPhone 11 Pro")
     }
 }
+
+
+
+//
+//
+//
+//
+//
+//                HStack {
+//                    Text("The text should arrive in 30s")
+//                        .fontWeight(.semibold)
+//                    Spacer()
+//                    Text("Didn't receive a text")
+//                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+//                        .underline()
+//                }
+//                .padding(.top, 150.0)
+//                .font(.system(size: 11))
+//
+//
+//                NavigationLink(
+//                    destination: NamePage(userInfo: userInfo, alreadySent: $alreadySent).navigationBarBackButtonHidden(true),
+//                    isActive: $phoneVerified) {
+//                    EmptyView()
+//                }.hidden()
+//
+//
+//
+//            }
+//            .frame(width: userInfo.defaultWidthSize, height: userInfo.defaultContentHeight, alignment: .topLeading)
+
