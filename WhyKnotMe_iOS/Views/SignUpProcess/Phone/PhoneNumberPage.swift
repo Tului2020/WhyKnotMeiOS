@@ -66,12 +66,7 @@ struct PhoneNumberPage: View {
                     
                     Text("I agree to the terms and conditions")
                 }
-                
                 Spacer();
-
-
-
-                
                 
                 HStack(spacing: 15) {
                     Image(systemName: "lock.circle")
@@ -84,6 +79,7 @@ struct PhoneNumberPage: View {
                         label: {
                             NextButton()
                         })
+                        .disabled(canProceed())
                 }
                 
                 Spacer();
@@ -91,13 +87,20 @@ struct PhoneNumberPage: View {
             }
             .padding(.horizontal, 30)
             .accentColor(.black)
-            
-            
-            
-            
         }
-        
     }
+    
+    
+    
+    
+    // MARK: FUNCTIONS
+    
+    func canProceed() -> Bool {
+        return !(self.agreeToTerms && userInfo.phoneNumber.count == 10)
+    }
+    
+    
+    
 }
 
 

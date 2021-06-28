@@ -16,106 +16,89 @@ struct BirthdayPage: View {
         ZStack {
             Image("background")
                 .resizable()
-                .frame(width: 600, height: 1000, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-            
-            VStack {
+                .edgesIgnoringSafeArea(.all)
+
+            VStack(spacing: 20) {
                 
-                HStack(spacing: 5) {
-                    ForEach(0..<userInfo.numPages) { num in
-                        if (num < pageNum) {
-                            Image(systemName: "circle.fill")
-                                .foregroundColor(.yellow)
-                        } else {
-                            Image(systemName: "circle.fill")
-                                .foregroundColor(.white)
-                        }
-                        
-                    }
-                }
-                
+
+                SignUpPageIndicator(numPages: userInfo.numPages, currentPageNum: pageNum)
+
+
+
                 
                 HStack {
-                    Button(action: {
-                        self.presentationMode.wrappedValue.dismiss()
-                    }, label: {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.primary)
-                    }).padding(.all, 4)
-                    
-                    Spacer()
-                    
+                    BackButton()
                     
                     Text("When's your birthday?")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                    Spacer()
+                        .font(.title)
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 }
-                .padding(.top, 60)
+                .padding(.top, 80)
+
+                
+                
+                
+                HStack(alignment: .center, spacing: 10, content: {
+                    
+                    VStack(alignment: .center, spacing: 10, content: {
+                        Text("Month")
+                        TextField("MM", text: $userInfo.birthMonth)
+                            .frame(width: 65, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .multilineTextAlignment(.center)
+                            .background(Color.white)
+                            .cornerRadius(4)
+                            .font(.title)
+                        
+                    })
+                
+                    VStack(alignment: .center, spacing: 10, content: {
+                        Text("Day")
+                        TextField("DD", text: $userInfo.birthDay)
+                            .frame(width: 65, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .multilineTextAlignment(.center)
+                            .background(Color.white)
+                            .cornerRadius(4)
+                            .font(.title)
+                    })
+                    
+                    VStack(alignment: .center, spacing: 10, content: {
+                        Text("Year")
+                        TextField("YYYY", text: $userInfo.birthMonth)
+                            .frame(width: 100, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .multilineTextAlignment(.center)
+                            .background(Color.white)
+                            .cornerRadius(4)
+                            .font(.title)
+                    })
+                })
+                
+                
+                Text("No worries, your birthday will not be shown, just your age ")
+                    .frame(alignment: .leading)
+                    .font(.system(size: 15, weight: .semibold))
+
+                
+                Spacer()
                 
                 HStack {
-                    VStack {
-                        Text("Month")
-                            .font(.system(size: 13))
-                        TextField("MM", text: $userInfo.birthMonth)
-                            .frame(width: 50, height: 50)
-                            .multilineTextAlignment(.center)
-                            .background(Color.white)
-                            .cornerRadius(6)
-                    }
-                    .padding(10)
-                    
-                    
-                    VStack {
-                        Text("Day")
-                            .font(.system(size: 13))
-                        TextField("DD", text: $userInfo.birthDay)
-                            .frame(width: 50, height: 50)
-                            .multilineTextAlignment(.center)
-                            .background(Color.white)
-                            .cornerRadius(6)
-                        
-                    }.padding(10)
-                    
-                    VStack {
-                        Text("Year")
-                            .font(.system(size: 13))
-                        TextField("YYYY", text: $userInfo.birthYear)
-                            .frame(width: 80, height: 50)
-                            .multilineTextAlignment(.center)
-                            .background(Color.white)
-                            .cornerRadius(6)
-                        
-                    }.padding(10)
+                    Spacer()
+                    NavigationLink(
+                        destination: BirthdayPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
+                        label: {
+                            NextButton()
+                        })
+                        .disabled(userInfo.firstName.count == 0)
                 }
+
+                Spacer()
+
                 
-                
-                Text("No worries, your birthday will be shown. Just your age")
-                    .frame(alignment: .leading)
-                    .font(.system(size: 14))
-                    .padding(.top, 20)
-                
-                
-                
-                
-                
-                
-                NavigationLink(
-                    destination: RelationshipPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
-                    label: {
-                        Image(systemName: "chevron.right")
-                            .frame(width: self.userInfo.defaultWidthSize / 7,  height: self.userInfo.defaultHeightSize)
-                            .background(Color.black)
-                            .foregroundColor(.white)
-                            .cornerRadius(self.userInfo.defaultWidthSize / 4)
-                    })
-                    .disabled(!(userInfo.birthDay.count > 0 && userInfo.birthMonth.count > 0 && userInfo.birthYear.count == 4))
-                    .offset(x: 120, y: 100)
-                    
                 
                 
                 
             }
-            .frame(width: self.userInfo.defaultWidthSize, height: 1.2 * self.userInfo.defaultContentHeight, alignment: .top)
+            .accentColor(.black)
+            .padding()
             
             
             

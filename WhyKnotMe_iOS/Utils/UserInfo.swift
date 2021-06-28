@@ -12,8 +12,7 @@ import SwiftUI
 class UserInfo: ObservableObject {
     @Published var phoneNumber: String = "5102077042";
     @Published var countryCode: String = "1";
-    @Published var termsAgreed: Bool = true;
-    
+
     @Published var email: String = "";
     @Published var firstName: String = "";
     @Published var lastName: String = "";

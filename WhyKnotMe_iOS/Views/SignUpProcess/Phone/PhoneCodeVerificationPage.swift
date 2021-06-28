@@ -98,6 +98,11 @@ struct PhoneCodeVerificationPage: View {
         print("RESEND VERIFICATION CODE!!")
     }
     
+    func verifyOTP() -> Bool {
+        print("VERIFY OTP")
+        return true
+    }
+    
     
 }
 

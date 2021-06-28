@@ -20,19 +20,58 @@ struct NamePage: View {
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
 
-            VStack {
+            VStack(spacing: 10) {
+                
+
                 SignUpPageIndicator(numPages: userInfo.numPages, currentPageNum: pageNum)
+
+
 
                 
                 HStack {
                     BackButton()
                     
                     Text("What's your first name?")
-                        .font(.largeTitle)
+                        .font(.title)
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 }
+                .padding(.top, 80)
 
                 
                 Text("You won't be able to change this later")
+                    .font(.subheadline)
+                
+                
+                TextField("Add your first name", text: $userInfo.firstName)
+                    .font(.system(size: 25))
+                    .frame(width: userInfo.defaultWidthSize, height: userInfo.defaultHeightSize + 10)
+                    .background(Color.white)
+                    .cornerRadius(8)
+                    .multilineTextAlignment(.center)
+                    .padding(.top, 30)
+                
+                
+                Text("Your name will be shown on your profile")
+                    .frame(alignment: .leading)
+                    .font(.system(size: 12, weight: .semibold))
+
+                
+                Spacer()
+                
+                HStack {
+                    Spacer()
+                    NavigationLink(
+                        destination: BirthdayPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
+                        label: {
+                            NextButton()
+                        })
+                        .disabled(userInfo.firstName.count == 0)
+                }
+
+                Spacer()
+
+                
+                
                 
                 
             }
@@ -51,62 +90,3 @@ struct NamePage_Previews: PreviewProvider {
     }
 }
 
-
-
-//VStack {
-//
-
-//
-//
-//    HStack {
-//        Button(action: {
-//            self.presentationMode.wrappedValue.dismiss()
-//        }, label: {
-//            Image(systemName: "chevron.left")
-//                .foregroundColor(.primary)
-//        }).padding(.all, 4)
-//
-//        Spacer()
-//        Text("What's your first name?")
-//            .font(.title2)
-//            .fontWeight(.bold)
-//
-//        Spacer()
-//    }
-//    .padding(.top, 60)
-//
-//
-//
-//    Text("You won't be able to change this later")
-//        .font(.system(size: 12, weight: .semibold))
-//        .padding(.top, 4)
-//
-//
-//
-//
-//    TextField("Add your first name", text: $userInfo.firstName)
-//        .font(.system(size: 25))
-//        .frame(width: userInfo.defaultWidthSize, height: userInfo.defaultHeightSize + 10)
-//        .background(Color.white)
-//        .cornerRadius(8)
-//        .multilineTextAlignment(.center)
-//        .padding(.top, 30)
-//
-//
-//    Text("Your name will be shown on your profile")
-//        .frame(alignment: .leading)
-//        .font(.system(size: 12, weight: .semibold))
-//        .padding(.top, 20)
-//
-//    NavigationLink(
-//        destination: BirthdayPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
-//        label: {
-//            NextButton()
-//        })
-//        .disabled(userInfo.firstName.count == 0)
-//        .offset(x: 120, y: 100)
-//
-//
-//
-//
-//}
