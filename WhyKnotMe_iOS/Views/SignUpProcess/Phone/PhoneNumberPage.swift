@@ -90,7 +90,7 @@ struct PhoneNumberPage: View {
                     NavigationLink(
                         destination: PhoneCodeVerificationPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
                         label: {
-                            NextButton(circleColor: Color.white, arrowColor: Color.blue)
+                            NextButton()
                         })
                 }
                 

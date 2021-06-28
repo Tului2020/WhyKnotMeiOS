@@ -9,8 +9,8 @@ import SwiftUI
 
 struct NextButton: View {
     
-    @State var circleColor: Color = Color.blue;
-    @State var arrowColor: Color = Color.white;
+    @State var circleColor: Color = Color.white;
+    @State var arrowColor: Color = Color.blue;
     @State var circleSize: CGFloat = 22;
     
     var body: some View {

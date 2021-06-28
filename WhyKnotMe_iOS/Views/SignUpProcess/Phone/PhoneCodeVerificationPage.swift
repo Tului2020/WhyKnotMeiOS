@@ -25,7 +25,9 @@ struct PhoneCodeVerificationPage: View {
                 .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             
             
+            // MARK: CONTENT
             VStack {
+                Spacer()
                 HStack(spacing: 10) {
                     Button(action: {
                         self.presentationMode.wrappedValue.dismiss()
@@ -40,7 +42,7 @@ struct PhoneCodeVerificationPage: View {
                 }
                 .frame(maxWidth: .infinity)
                 
-                
+                Spacer()
                 
                 VStack {
                     Text("Enter the code we've sent by text to")
@@ -54,10 +56,7 @@ struct PhoneCodeVerificationPage: View {
                             Text("Change")
                                 .underline()
                         })
-                        
-                        
                     }
-                    
                 }
                 
                 
@@ -74,31 +73,38 @@ struct PhoneCodeVerificationPage: View {
                         
                     }
                 })
-                
+                Spacer()
                 
                 HStack {
+                    
+                    Text("The text should arrive within 30s")
+                        .font(.system(size: 12))
+                    
                     Spacer()
                     
+                    
                     Button(action: {
-                        self.presentationMode.wrappedValue.dismiss()
+                        resendVerificationCode()
                     }, label: {
-                        NextButton()
+                        Text("Didn't receive a text?")
+                            .font(.system(size: 12))
+                            .fontWeight(.bold)
+                            .underline()
                     })
                 }
-                .padding()
- 
-                
+                Spacer();
+                Spacer()
             }
-            
-            .padding()
+            .padding(.horizontal)
             .accentColor(.black)
-            
-            
-            
         }
-        
     }
     
+    
+    // MARK: FUNCTIONS
+    func resendVerificationCode() -> Void {
+        print("RESEND VERIFICATION CODE!!")
+    }
     
     
 }
@@ -109,34 +115,4 @@ struct PhoneCodeVerificationPage_Previews: PreviewProvider {
             .previewDevice("iPhone 11 Pro")
     }
 }
-
-
-
-//
-//
-//
-//
-//
-//                HStack {
-//                    Text("The text should arrive in 30s")
-//                        .fontWeight(.semibold)
-//                    Spacer()
-//                    Text("Didn't receive a text")
-//                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-//                        .underline()
-//                }
-//                .padding(.top, 150.0)
-//                .font(.system(size: 11))
-//
-//
-//                NavigationLink(
-//                    destination: NamePage(userInfo: userInfo, alreadySent: $alreadySent).navigationBarBackButtonHidden(true),
-//                    isActive: $phoneVerified) {
-//                    EmptyView()
-//                }.hidden()
-//
-//
-//
-//            }
-//            .frame(width: userInfo.defaultWidthSize, height: userInfo.defaultContentHeight, alignment: .topLeading)
 
