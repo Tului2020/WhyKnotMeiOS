@@ -12,8 +12,6 @@ struct PhoneCodeVerificationPage: View {
     @ObservedObject var userInfo: UserInfo;
     @State var phoneVerified = false;
     @State var alreadySent = false;
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
     
     var body: some View {
         ZStack {
@@ -27,12 +25,7 @@ struct PhoneCodeVerificationPage: View {
             VStack {
                 Spacer()
                 HStack(spacing: 10) {
-                    Button(action: {
-                        self.presentationMode.wrappedValue.dismiss()
-                    }, label: {
-                        Image(systemName: "chevron.left")
-                            .font(.title3)
-                    })
+                    BackButton();
                     
                     Text("Verify your phone number")
                         .font(.title2)
@@ -48,12 +41,7 @@ struct PhoneCodeVerificationPage: View {
                     HStack (spacing: 0) {
                         Text("+\(self.userInfo.countryCode + self.userInfo.phoneNumber.prefix(6))****. ")
                         
-                        Button(action: {
-                            self.presentationMode.wrappedValue.dismiss()
-                        }, label: {
-                            Text("Change")
-                                .underline()
-                        })
+                        BackButton(buttonView: "Change")
                     }
                 }
                 

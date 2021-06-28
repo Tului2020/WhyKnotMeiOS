@@ -27,12 +27,6 @@ struct NamePage: View {
                 HStack {
                     BackButton()
                     
-//                    Button(action: {
-//                        self.presentationMode.wrappedValue.dismiss()
-//                    }, label: {
-//
-//                    })
-                    
                     Text("What's your first name?")
                         .font(.largeTitle)
                 }

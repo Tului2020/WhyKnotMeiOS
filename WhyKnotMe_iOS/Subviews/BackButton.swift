@@ -9,20 +9,32 @@ import SwiftUI
 
 struct BackButton: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-//    var buttonAction: Void?
+    var buttonView: String = ""
+
+        
     
     var body: some View {
         Button(action: {
             self.presentationMode.wrappedValue.dismiss()
         }, label: {
-            Image(systemName: "chevron.left")
-                .font(.title3)
+            if (buttonView == "") {
+                Image(systemName: "chevron.left")
+                    .font(.title3)
+            } else {
+                Text(buttonView)
+                    .underline()
+            }
+
         })
     }
 }
 
 struct BackButton_Previews: PreviewProvider {
     static var previews: some View {
-        BackButton()
+        VStack {
+            BackButton(buttonView: "Hello")
+            BackButton()
+        }
+        
     }
 }

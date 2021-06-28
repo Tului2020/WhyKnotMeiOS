@@ -6,13 +6,9 @@
 //
 
 import SwiftUI
-import iPhoneNumberField
-//import AuthenticationServices
 
 struct PhoneNumberPage: View {
     
-    
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var userInfo: UserInfo;
     @State var agreeToTerms = false;
     
@@ -29,12 +25,7 @@ struct PhoneNumberPage: View {
                 Spacer();
                 
                 HStack(spacing: 10) {
-                    Button(action: {
-                        self.presentationMode.wrappedValue.dismiss()
-                    }, label: {
-                        Image(systemName: "chevron.left")
-                            .font(.title3)
-                    })
+                    BackButton();
                     
                     Text("What's your phone number?")
                         .font(.title2)
