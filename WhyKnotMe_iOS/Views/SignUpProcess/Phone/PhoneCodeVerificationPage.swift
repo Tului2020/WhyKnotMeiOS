@@ -88,8 +88,16 @@ struct PhoneCodeVerificationPage: View {
                             .underline()
                     })
                 }
+                
+                NavigationLink(
+                    destination: NamePage(userInfo: userInfo, alreadySent: $alreadySent).navigationBarBackButtonHidden(true),
+                    isActive: $phoneVerified) {
+                    EmptyView()
+                }.hidden()
+                
                 Spacer();
-                Spacer()
+                Spacer();
+                
             }
             .padding(.horizontal)
             .accentColor(.black)
