@@ -15,22 +15,34 @@ struct RelationshipPage: View {
         ZStack {
             Image("background")
                 .resizable()
-                .frame(width: 600, height: 1000, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .edgesIgnoringSafeArea(.all)
+
                 
-            VStack {
+            VStack(spacing: 80) {
                 SignUpPageIndicator(numPages: userInfo.numPages, currentPageNum: pageNum)
                 
-                HStack {
+                HStack(spacing: 30) {
                     BackButton();
                     
                     Text("Select your profile: \n Casual Dating or \n Long Term Relationship")
-                        .font(.title)
+                        .font(.title2)
                         .fontWeight(.bold)
                 }
                 
                 RadioButtons(chosenType: $userInfo.relationshipType, data: ["Casual Dating", "Long Term Relationship"])
-                    .frame(width: 300, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+
                 
+                HStack {
+                    Spacer()
+                    NavigationLink(
+                        destination: InterestedInPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
+                        label: {
+                            NextButton()
+                        })
+                        .disabled(userInfo.relationshipType == "")
+                }
+                
+                Spacer();
                 
             }
             .padding()

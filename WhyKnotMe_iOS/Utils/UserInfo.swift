@@ -24,7 +24,8 @@ class UserInfo: ObservableObject {
     @Published var codeDict: [Int: String] = Dictionary<Int, String>(uniqueKeysWithValues: (0..<4).map{($0, "")});
     @Published var firstResponderIndex = 0;
     @Published var relationshipType = "";
-    
+    @Published var interestedIn = "";
+
     
     var defaultWidthSize: CGFloat = 319;
     var defaultHeightSize:CGFloat = 45;
@@ -33,7 +34,7 @@ class UserInfo: ObservableObject {
     var defaultInputHeightSize:CGFloat = 40;
     var defaultContentHeight:CGFloat = 600;
     
-    var numPages: Int = 5;
+    var numPages: Int = 4;
     
     
 }

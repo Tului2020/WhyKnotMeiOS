@@ -164,9 +164,9 @@
 		EDECF13A266054ED00CF5AFD /* WhyKnotMe_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				ED0FAB0F268544FA00743E81 /* Subviews */,
 				ED69C1352677009400C3D52F /* Utils */,
 				ED3230F42660706600FB614A /* Views */,
+				ED0FAB0F268544FA00743E81 /* Subviews */,
 				EDECF13B266054ED00CF5AFD /* WhyKnotMe_iOSApp.swift */,
 				EDECF13D266054ED00CF5AFD /* ContentView.swift */,
 				EDECF13F266054EE00CF5AFD /* Assets.xcassets */,

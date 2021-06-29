@@ -29,14 +29,13 @@ struct RadioButtons: View {
                         RadioCircle(circleSize: 20, chosen: chosenType == relationshipType)
                     })
                 }
-                .frame(maxWidth: .infinity)
                 .padding()
                 .frame(height: 50)
                 .background(Color.white)
                 .cornerRadius(5)
             }
         }
-        .padding(.horizontal, 25)
+        .padding(.horizontal)
         
     }
     

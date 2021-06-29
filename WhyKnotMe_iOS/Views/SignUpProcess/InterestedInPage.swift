@@ -16,26 +16,38 @@ struct InterestedInPage: View {
         ZStack {
             Image("background")
                 .resizable()
-                .frame(width: 600, height: 1000, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                
-            VStack {
-                HStack(spacing: 5) {
-                    ForEach(0..<userInfo.numPages) { num in
-                        if (num < pageNum) {
-                            Image(systemName: "circle.fill")
-                                .foregroundColor(.yellow)
-                        } else {
-                            Image(systemName: "circle.fill")
-                                .foregroundColor(.white)
-                        }
+                .edgesIgnoringSafeArea(.all)
 
-                    }
+                
+            VStack(spacing: 80) {
+                SignUpPageIndicator(numPages: userInfo.numPages, currentPageNum: pageNum)
+                
+                HStack {
+                    BackButton();
+                    
+                    Text("Who are you interested in?")
+                        .font(.title2)
+                        .fontWeight(.bold)
                 }
                 
+                RadioButtons(chosenType: $userInfo.interestedIn, data: ["I'm interested in men", "I'm interested in women", "I'm interested in everyone"])
+
+                
+                HStack {
+                    Spacer()
+                    NavigationLink(
+                        destination: InterestedInPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
+                        label: {
+                            NextButton()
+                        })
+                        .disabled(userInfo.interestedIn == "")
+                }
+                
+                Spacer();
+                
             }
-            .frame(width: self.userInfo.defaultWidthSize, height: 1.2 * self.userInfo.defaultContentHeight, alignment: .top)
-            
-            
+            .padding()
+            .accentColor(.black)
         }
     }
 }
