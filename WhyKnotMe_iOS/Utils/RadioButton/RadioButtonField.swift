@@ -9,19 +9,32 @@ import SwiftUI
 
 struct RadioButtons: View {
     
-    @State var chosen: Bool = true
+    
+    @ObservedObject var userInfo: UserInfo;
+    var data: [String]
+    
+
+    
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            ForEach(data, id: \.self) { i in
+            ForEach(data, id: \.self) { relationshipType in
                 Button(action: {
-                    
-                    
+                    userInfo.relationshipType = relationshipType;
                     
                 }, label: {
-                    Text(i)
-                    Spacer()
-                    Circle().fill(Color.black.opacity(0.5)).frame(width: 20, height: 20)
+                    HStack {
+                        Text(relationshipType)
+                        Spacer()
+                        RadioCircle(circleSize: 20, chosen: userInfo.relationshipType == relationshipType)
+                    }
+                    
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .frame(height: 50)
+                    .background(Color.white)
+                    .cornerRadius(5)
+
                 })
                 
             }
@@ -30,15 +43,20 @@ struct RadioButtons: View {
         
     }
     
-    
 }
 
-var data = ["Casual Dating", "Long Term Relationship", "None"]
+
 
 
 struct RadioButtons_Previews: PreviewProvider {
     static var previews: some View {
-        RadioButtons()
+        ZStack {
+            Image("background")
+                .resizable()
+                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+            RadioButtons(userInfo: UserInfo(), data: ["Casual Dating", "Long Term Relationship"])
+        }
+
     }
 }
 

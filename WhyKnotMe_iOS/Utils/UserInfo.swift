@@ -23,6 +23,7 @@ class UserInfo: ObservableObject {
     @Published var username: String = "";
     @Published var codeDict: [Int: String] = Dictionary<Int, String>(uniqueKeysWithValues: (0..<4).map{($0, "")});
     @Published var firstResponderIndex = 0;
+    @Published var relationshipType = "";
     
     
     var defaultWidthSize: CGFloat = 319;

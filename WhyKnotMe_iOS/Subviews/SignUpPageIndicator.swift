@@ -20,7 +20,7 @@ struct SignUpPageIndicator: View {
             ForEach(0..<self.numPages) { num in
                 Image(systemName: "circle.fill")
                     .font(.system(size: indicatorSize))
-                    .foregroundColor(num < self.currentPageNum ? .green : .white )
+                    .foregroundColor(num < self.currentPageNum ? Color.IndicatorColor : .white )
             }
         }
     }
