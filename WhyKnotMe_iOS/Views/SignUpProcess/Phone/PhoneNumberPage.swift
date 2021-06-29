@@ -10,7 +10,7 @@ import SwiftUI
 struct PhoneNumberPage: View {
     
     @ObservedObject var userInfo: UserInfo;
-    @State var agreeToTerms = false;
+    @State var agreeToTerms = true;
     
     
     var body: some View {

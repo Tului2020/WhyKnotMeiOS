@@ -14,7 +14,7 @@ class UserInfo: ObservableObject {
     @Published var countryCode: String = "1";
 
     @Published var email: String = "";
-    @Published var firstName: String = "";
+    @Published var firstName: String = "1";
     @Published var lastName: String = "";
     @Published var birthDay: String = "";
     @Published var birthMonth: String = "";

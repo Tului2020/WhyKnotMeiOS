@@ -35,7 +35,7 @@ struct PictureOptionsPage: View {
                 Group {
                     
                     NavigationLink(
-                        destination: Text("Destination"),
+                        destination: LocalPictureOption(userInfo: userInfo).navigationBarBackButtonHidden(true),
                         label: {
                             Text("Choose a photo")
                             Spacer()
