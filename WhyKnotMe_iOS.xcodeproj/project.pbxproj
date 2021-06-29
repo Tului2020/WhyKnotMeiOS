@@ -21,6 +21,7 @@
 		ED7804AC268A98EC00656AF0 /* RadioCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7804AB268A98EC00656AF0 /* RadioCircle.swift */; };
 		ED7804AE268AA40100656AF0 /* PictureOptionsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7804AD268AA40100656AF0 /* PictureOptionsPage.swift */; };
 		ED7804B0268AA42300656AF0 /* BackgroundPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7804AF268AA42300656AF0 /* BackgroundPicture.swift */; };
+		ED7804B3268B655500656AF0 /* LocalPictureOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7804B2268B655500656AF0 /* LocalPictureOption.swift */; };
 		ED959C6D2676927B002AC0B7 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED959C6C2676927B002AC0B7 /* UserInfo.swift */; };
 		EDB008872677E4D30073E668 /* RadioButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB008862677E4D30073E668 /* RadioButtons.swift */; };
 		EDE09F192667028100CE4C19 /* PhoneCodeVerificationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE09F182667028100CE4C19 /* PhoneCodeVerificationPage.swift */; };
@@ -49,6 +50,7 @@
 		ED7804AB268A98EC00656AF0 /* RadioCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioCircle.swift; sourceTree = "<group>"; };
 		ED7804AD268AA40100656AF0 /* PictureOptionsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureOptionsPage.swift; sourceTree = "<group>"; };
 		ED7804AF268AA42300656AF0 /* BackgroundPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundPicture.swift; sourceTree = "<group>"; };
+		ED7804B2268B655500656AF0 /* LocalPictureOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPictureOption.swift; sourceTree = "<group>"; };
 		ED959C6C2676927B002AC0B7 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		EDB008862677E4D30073E668 /* RadioButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtons.swift; sourceTree = "<group>"; };
 		EDE09F182667028100CE4C19 /* PhoneCodeVerificationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCodeVerificationPage.swift; sourceTree = "<group>"; };
@@ -142,6 +144,14 @@
 			path = OneTimeCode;
 			sourceTree = "<group>";
 		};
+		ED7804B1268B653D00656AF0 /* LocalPictureOption */ = {
+			isa = PBXGroup;
+			children = (
+				ED7804B2268B655500656AF0 /* LocalPictureOption.swift */,
+			);
+			path = LocalPictureOption;
+			sourceTree = "<group>";
+		};
 		EDB008852677E4C70073E668 /* RadioButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +210,7 @@
 				EDF710A82676B3EE00C22902 /* RelationshipPage.swift */,
 				EDF710AA2676B44E00C22902 /* InterestedInPage.swift */,
 				ED7804AD268AA40100656AF0 /* PictureOptionsPage.swift */,
+				ED7804B1268B653D00656AF0 /* LocalPictureOption */,
 			);
 			path = SignUpProcess;
 			sourceTree = "<group>";
@@ -288,6 +299,7 @@
 				EDF710A52676B10700C22902 /* NamePage.swift in Sources */,
 				ED0FAB112685450600743E81 /* NextButton.swift in Sources */,
 				ED0FAB13268A73DD00743E81 /* SignUpPageIndicator.swift in Sources */,
+				ED7804B3268B655500656AF0 /* LocalPictureOption.swift in Sources */,
 				EDF710AB2676B44E00C22902 /* InterestedInPage.swift in Sources */,
 				ED69C13C2677012900C3D52F /* OneTimeCodeBoxes.swift in Sources */,
 				EDB008872677E4D30073E668 /* RadioButtons.swift in Sources */,
