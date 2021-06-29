@@ -63,7 +63,7 @@ struct BirthdayPage: View {
                     
                     VStack(alignment: .center, spacing: 10, content: {
                         Text("Year")
-                        TextField("YYYY", text: $userInfo.birthMonth)
+                        TextField("YYYY", text: $userInfo.birthYear)
                             .frame(width: 100, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .multilineTextAlignment(.center)
                             .background(Color.white)
@@ -83,7 +83,7 @@ struct BirthdayPage: View {
                 HStack {
                     Spacer()
                     NavigationLink(
-                        destination: BirthdayPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
+                        destination: RelationshipPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
                         label: {
                             NextButton()
                         })

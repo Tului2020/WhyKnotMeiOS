@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct RelationshipPage: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var userInfo: UserInfo;
     var pageNum: Int = 3;
     
@@ -19,68 +18,23 @@ struct RelationshipPage: View {
                 .frame(width: 600, height: 1000, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
             VStack {
-                
-                HStack(spacing: 5) {
-                    ForEach(0..<userInfo.numPages) { num in
-                        if (num < pageNum) {
-                            Image(systemName: "circle.fill")
-                                .foregroundColor(.yellow)
-                        } else {
-                            Image(systemName: "circle.fill")
-                                .foregroundColor(.white)
-                        }
-                        
-                    }
-                }
-                
+                SignUpPageIndicator(numPages: userInfo.numPages, currentPageNum: pageNum)
                 
                 HStack {
-                    Button(action: {
-                        self.presentationMode.wrappedValue.dismiss()
-                    }, label: {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.primary)
-                    }).padding(.all, 4)
+                    BackButton();
                     
-                    Spacer()
-                    
-                    
-                    Text("Select your profile Casual Dating or Long Term Relationship")
-                        .font(.title2)
+                    Text("Select your profile: \n Casual Dating or \n Long Term Relationship")
+                        .font(.title)
                         .fontWeight(.bold)
-                    Spacer()
                 }
-                .padding(.top, 60)
                 
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                NavigationLink(
-                    destination: RelationshipPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
-                    label: {
-                        Image(systemName: "chevron.right")
-                            .frame(width: self.userInfo.defaultWidthSize / 7,  height: self.userInfo.defaultHeightSize)
-                            .background(Color.black)
-                            .foregroundColor(.white)
-                            .cornerRadius(self.userInfo.defaultWidthSize / 4)
-                    })
-                    .disabled(!(userInfo.birthDay.count > 0 && userInfo.birthMonth.count > 0 && userInfo.birthYear.count == 4))
-                    .offset(x: 120, y: 100)
-                    
-                
+                RadioButtons(chosenType: $userInfo.relationshipType, data: ["Casual Dating", "Long Term Relationship"])
+                    .frame(width: 300, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
                 
             }
-            .frame(width: self.userInfo.defaultWidthSize, height: 1.2 * self.userInfo.defaultContentHeight, alignment: .top)
-            
-            
+            .padding()
+            .accentColor(.black)
         }
     }
 }
