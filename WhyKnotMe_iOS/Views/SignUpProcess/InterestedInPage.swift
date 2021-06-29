@@ -35,10 +35,11 @@ struct InterestedInPage: View {
                 HStack {
                     Spacer()
                     NavigationLink(
-                        destination: InterestedInPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
+                        destination: PictureOptionsPage(userInfo: userInfo).navigationBarBackButtonHidden(true),
                         label: {
                             NextButton()
                         })
+                        .padding()
                         .disabled(userInfo.interestedIn == "")
                 }
                 
