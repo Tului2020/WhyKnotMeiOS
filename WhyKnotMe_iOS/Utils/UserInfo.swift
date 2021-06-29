@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// need to change code below to Envrionment Object, this will make a lot of code efficient
 
 
 class UserInfo: ObservableObject {
