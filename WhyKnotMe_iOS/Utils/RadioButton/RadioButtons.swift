@@ -48,9 +48,8 @@ struct RadioButtons_Previews: PreviewProvider {
     
     static var previews: some View {
         ZStack {
-            Image("background")
-                .resizable()
-                .edgesIgnoringSafeArea(.all)
+            BackgroundPicture()
+
             RadioButtons(chosenType: .constant(""), data: ["Casual Dating", "Long Term Relationship"])
         }
 

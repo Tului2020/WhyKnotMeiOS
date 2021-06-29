@@ -14,9 +14,8 @@ struct InterestedInPage: View {
     
     var body: some View {
         ZStack {
-            Image("background")
-                .resizable()
-                .edgesIgnoringSafeArea(.all)
+            BackgroundPicture()
+
 
                 
             VStack(spacing: 80) {

@@ -12,9 +12,8 @@ struct ApplePage: View {
         ZStack {
             
             // background
-            Image("background")
-                .resizable()
-                .frame(width: 600.0, height: 1000.0)
+            BackgroundPicture()
+
             
             Text("Apple Sign up Page")
         }

@@ -15,11 +15,7 @@ struct PhoneCodeVerificationPage: View {
     
     var body: some View {
         ZStack {
-            Image("background")
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-            
+            BackgroundPicture()
             
             // MARK: CONTENT
             VStack {

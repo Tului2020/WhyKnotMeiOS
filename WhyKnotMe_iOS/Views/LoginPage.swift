@@ -18,9 +18,7 @@ struct LoginPage: View {
             
             
             ZStack {
-                Image("background")
-                    .resizable()
-                    .edgesIgnoringSafeArea(.all)
+                BackgroundPicture()
                 
                 
                 VStack(spacing: 50) {

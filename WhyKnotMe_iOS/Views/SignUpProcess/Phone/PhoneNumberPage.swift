@@ -15,9 +15,8 @@ struct PhoneNumberPage: View {
     
     var body: some View {
         ZStack {
-            Image("background")
-                .resizable()
-                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+            BackgroundPicture()
+
             
             
             VStack(spacing: 30) {

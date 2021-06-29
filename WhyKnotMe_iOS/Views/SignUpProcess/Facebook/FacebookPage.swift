@@ -18,21 +18,8 @@ struct FacebookPage: View {
     var body: some View {
         ZStack {
             
-            
+            BackgroundPicture()
 
-            
-            
-            
-            
-            
-            
-            
-            // background
-//            Image("background")
-//                .resizable()
-//                .frame(width: 600.0, height: 1000.0)
-//
-//            Text("Facebook Sign up Page")
             
             
         }
